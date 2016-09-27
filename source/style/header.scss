@@ -1,0 +1,12 @@
+@import 'common/__settings';
+@import 'common/sprite';
+@import 'common/fonts';
+
+.clearfix:before,
+.clearfix:after{
+  content: "";
+  display: table;
+}
+.clearfix:after{
+  clear: both;
+}
