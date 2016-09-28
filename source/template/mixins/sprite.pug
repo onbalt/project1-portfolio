@@ -1,0 +1,7 @@
+mixin svg(name)
+    svg(class="svg__" + name)
+        use(xlink:href="/assets/img/sprite.svg#" + name)
+
+mixin svgItem(blockName, name)
+    svg(class=blockName + "__svg " + blockName + "__svg-" + name)
+        use(xlink:href="/assets/img/sprite.svg#" + name)

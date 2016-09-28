@@ -1,0 +1,49 @@
+extends ../_template
+
+block variables
+    - var title = 'Обо мне'
+
+block content
+    .wrapper
+        .column2
+            h1 Обо мне
+            .developer-photo
+                img.developer-photo__image(src="/assets/img/avatar_big.jpg")
+            h2.header-line Кто я
+            p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
+        .column2
+            h2.header-line Чем я могу быть вам полезен
+            p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+            .skills
+                h3.skills__header Frontend
+                ul.skills__list
+                    li.skills__item
+                        .skills__title 111
+                        .skills__circle
+                            .skills__circle-content 50%
+                h3.skills__header Backend
+                ul.skills__list
+                    li.skills__item
+                        .skills__title 111
+                        .skills__circle 70%
+                    li.skills__item
+                        .skills__title 222
+                        .skills__circle 20%
+                    li.skills__item
+                        .skills__title 333
+                        .skills__circle 30%
+                h3.skills__header WorkFlow
+                ul.skills__list
+                    li.skills__item 1
+                        .skills__title 111
+                        .skills__circle 40%
+        .map
+            .map__wrap
+            .contacts
+                h2.header-line.contacts__header-line Контакты
+                ul.contacts__list
+                    li.contacts__item Skype
+                    li.contacts__item Phone
+                    li.contacts__item Mail
+                    li.contacts__item Address

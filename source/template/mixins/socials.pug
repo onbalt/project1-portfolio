@@ -1,0 +1,8 @@
+mixin socials(list)
+    .socials
+        ul.socials__list
+            each item in list
+                li.socials__item
+                    a.socials__link(class=`socials__link_${item.name}` href=`${item.link}` target="_blank")
+                        +svgItem("socials", item.name)
+            .clearfix
