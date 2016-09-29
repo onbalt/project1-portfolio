@@ -5,15 +5,16 @@ block variables
 
 block content
     .wrapper
-        .column2
-            h1 Обо мне
+        .column2.main-col-1
+            h1.heading Обо мне
             .developer-photo
-                img.developer-photo__image(src="/assets/img/avatar_big.jpg")
-            h2.header-line Кто я
+                //img.developer-photo__image(src="/assets/img/avatar_big.jpg")
+                img.developer-photo__image(src="/assets/img/avatar.jpg")
+            h2.heading-line Кто я
             p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
-        .column2
-            h2.header-line Чем я могу быть вам полезен
+        .column2.main-col-2
+            h2.heading-line.main-col-2__heading-line Чем я могу быть <br> вам полезен
             p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
             .skills
                 h3.skills__header Frontend
@@ -38,10 +39,11 @@ block content
                     li.skills__item 1
                         .skills__title 111
                         .skills__circle 40%
+        .clearfix
         .map
             .map__wrap
             .contacts
-                h2.header-line.contacts__header-line Контакты
+                h2.heading-line.contacts__heading-line Контакты
                 ul.contacts__list
                     li.contacts__item Skype
                     li.contacts__item Phone

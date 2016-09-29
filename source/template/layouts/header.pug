@@ -1,14 +1,16 @@
 header.header
-    .header__wrap
-        .left-side.header__left-side
-            +socials(socialLinks)
-        .right-side.header__right-side
-            .menu.header__menu.menu_closed
-                a.menu__open-link(href="#menu")
-                    +svgItem('menu', 'hamburger')
-                +menu__list(menuHeader)
-        .clearfix
+    .wrapper
+        .header__side-wrap
+            .left-side.header__left-side
+                +socials(socialLinks)
+            .right-side.header__right-side
+                .menu.header__menu.menu_closed
+                    a.menu__open-link(href="#menu")
+                        +svgItem('menu', 'hamburger')
+                    +menu__list(menuHeader)
         .developer.header__developer
+            //.header__developer-svg
+            +svgItem("developer", "stars1")
             //-.developer_inner
             .developer__photo-wrap
                 img.developer__photo(src="/assets/img/avatar.jpg")
