@@ -7,7 +7,12 @@ header.header
                 .menu.header__menu.menu_closed
                     a.menu__open-link(href="#menu")
                         +svgItem('menu', 'hamburger')
-                    +menu__list(menuHeader)
+                    .menu__fullscreen
+                        .wrapper
+                            .right-side
+                                a.menu__close-link(href="#")
+                                    +svgItem('menu', 'hamburger')
+                            +menu__list(menuHeader)
         .developer.header__developer
             //.header__developer-svg
             +svgItem("developer", "stars1")

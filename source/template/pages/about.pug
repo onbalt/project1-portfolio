@@ -1,7 +1,8 @@
 extends ../_template
 
 block variables
-    - var title = 'Обо мне'
+    - var pageAlias = 'about.html'
+    - var pageTitle = 'Обо мне'
 
 block content
     .wrapper
@@ -19,33 +20,29 @@ block content
             .skills
                 h3.skills__header Frontend
                 ul.skills__list
-                    li.skills__item
-                        .skills__title 111
-                        .skills__circle
-                            .skills__circle-content 50%
+                    +skillsItem(11, 77)
+                    +skillsItem(22, 60)
+                    +skillsItem(33, 33)
+                .clearfix
                 h3.skills__header Backend
                 ul.skills__list
-                    li.skills__item
-                        .skills__title 111
-                        .skills__circle 70%
-                    li.skills__item
-                        .skills__title 222
-                        .skills__circle 20%
-                    li.skills__item
-                        .skills__title 333
-                        .skills__circle 30%
+                    +skillsItem(111, 40)
+                    +skillsItem(222, 90)
+                    +skillsItem(333, 30)
+                    +skillsItem(444, 11)
+                .clearfix
                 h3.skills__header WorkFlow
                 ul.skills__list
-                    li.skills__item 1
-                        .skills__title 111
-                        .skills__circle 40%
+                    +skillsItem(1111, 55)
+                    +skillsItem(2222, 44)
+                    +skillsItem(3333, 66)
         .clearfix
-        .map
-            .map__wrap
-            .contacts
-                h2.heading-line.contacts__heading-line Контакты
-                ul.contacts__list
-                    li.contacts__item Skype
-                    li.contacts__item Phone
-                    li.contacts__item Mail
-                    li.contacts__item Address
+    .map
+        .map__wrap
+        .contacts.map__contacts
+            h2.heading-line.contacts__heading-line Контакты
+            ul.contacts__list
+                li.contacts__item Skype
+                li.contacts__item Phone
+                li.contacts__item Mail
+                li.contacts__item Address

@@ -1,0 +1,7 @@
+mixin skillsItem(title, percent)
+    li.skills__item
+        .skills__circle
+            .skills__circle-bg
+            svg.skills__circle-progress
+                path.skills__circle-svg-path(data-percent=percent d="m55,10c24.86188,0 45,20.13812 45,45c0,24.86188 -20.13812,45 -45,45c-24.86188,0 -45,-20.13812 -45,-45c0,-24.86188 20.13812,-45 45,-45z")
+            .skills__circle-content= title
