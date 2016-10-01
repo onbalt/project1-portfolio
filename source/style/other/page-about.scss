@@ -1,6 +1,6 @@
 .map {
   min-height: 974px;
-  background: #223b65 center top no-repeat url("/assets/img/map_bg.jpg");
+  background: #f2f2f2 center top no-repeat url("/assets/img/map_bg.jpg");
   position: relative;
   margin: 27px 0 0;
   &__contacts {
@@ -18,18 +18,29 @@
     margin: 28px 0;
     &::after {
       margin-top: 23px;
+      border-color: #878e9e;
     }
   }
   &__list {
     list-style: none;
     margin: 18px 0;
     padding: 0;
+    color: #616674;
   }
   &__item {
     float: left;
     width: 50%;
-    //margin: 14px;
-    //max-width: 28px;
-    //height: 22px;
+    margin: 2px 0 25px;
+    position: relative;
+  }
+  &__svg {
+    width: 45px;
+    height: 45px;
+    margin: 0 10px 0 19px;
+    fill: #004cd1;
+  }
+  &__title {
+    position: absolute;
+    top: 15px;
   }
 }

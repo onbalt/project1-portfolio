@@ -1,1 +1,23 @@
 footer.footer
+    .footer-wrap
+        .wrapper.footer__wrapper
+            .column3.footer-col.footer-col_1
+                .footer-column
+                    .footer-column__text.
+                        Этот сайт я сделал в рамках обучения
+                        в Школе онлайн образования LoftSchool.
+            .column3.footer-col.footer-col_2
+                .footer-column.footer-column_middle
+                    .footer-menu
+                        +footer-menu__list(menuHeader)
+                        .clearfix
+                    //.left-side.header__left-side
+                    +socials(socialLinks,"lighter")
+            .column3.footer-col.footer-col_3
+                .footer-column
+                    .footer-column__text.
+                        skype<br>
+                        e-mail<br>
+                        +7 111 222 33 44<br>
+                        Address
+    .footer-copyright &copy; Boris Dvorianchikov | Создано с любовью в LoftSchool | 2016

@@ -1,8 +1,9 @@
-mixin socials(list)
-    .socials
-        ul.socials__list
+mixin socials(list,modifier)
+    - modifier = typeof modifier != "undefined" ? "_" + modifier : ""
+    div(class={"socials": modifier} class="socials" + modifier)
+        ul(class={"socials__list": modifier} class="socials__list" + modifier)
             each item in list
-                li.socials__item
-                    a.socials__link(class=`socials__link_${item.name}` href=`${item.link}` target="_blank")
+                li(class={"socials__item": modifier} class="socials__item" + modifier)
+                    a(class={"socials__link": modifier} class="socials__link" + modifier class="socials__link_" + item.name  href=item.link target="_blank")
                         +svgItem("socials", item.name)
             .clearfix

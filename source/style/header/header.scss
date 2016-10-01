@@ -1,0 +1,246 @@
+.clearfix:before,
+.clearfix:after{
+  content: "";
+  display: table;
+}
+.clearfix:after{
+  clear: both;
+}
+.clearfix {
+  zoom: 1; /* ie 6/7 */
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  //margin: 0 0 185px;
+  min-width: 1200px;
+  font-family: "RobotoRegular", sans-serif;
+  font-size: 16px;
+}
+.wrapper {
+  width: 1200px;
+  position: relative;
+  margin: 0 auto;
+}
+p {
+  margin: .7em 0 .7em;
+  line-height: 1.5;
+}
+.left-side {
+  float: left;
+}
+.right-side {
+  float: right;
+}
+.column2 {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+}
+.column3 {
+  width: 33.33%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.header{
+  position: relative;
+  min-height: 650px;
+  max-height: 880px;
+  background: #223b65 center top no-repeat url("/assets/img/header_bg.jpg");
+  overflow: hidden;
+  &__side-wrap {
+    height: 100px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 169px;
+    background: {
+      image:
+        linear-gradient(-170deg, transparent 166px, #f2f0e8 167px),
+        linear-gradient(170deg, transparent 166px, #f4f5f0 167px);
+      position: 0 100%, 100% 100%;
+      repeat: no-repeat;
+      size: 50% 100%;
+    }
+  }
+}
+.socials{
+  &__list {
+    list-style: none;
+    margin: 18px;
+    padding: 0;
+  }
+  &__item {
+    float: left;
+    margin: 14px;
+    max-width: 28px;
+    height: 22px;
+  }
+  &__link {
+    color: #fff;
+    &:hover, &:active, &:focus {
+      .socials__svg {
+        fill: #004cd1;
+      }
+    }
+  }
+  &__svg {
+    max-width: 100%;
+    max-height: 100%;
+    fill: currentColor;
+  }
+}
+.menu {
+  &__open-link {
+    display: block;
+  }
+  &__svg {
+    margin: 28px 31px;
+    fill: #fff;
+  }
+  &__svg-hamburger {
+    width: 40px;
+    height: 35px;
+  }
+  &__fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: #183669;
+    background: rgba(24,54,105,.87);
+    z-index: 9999;
+  }
+  &__list {
+    list-style: none;
+    padding: 15% 0 0;
+    margin: 0;
+    text-align: center;
+    font-family: "SansusWebissimoRegular", sans-serif;
+    font-size: 63px;
+    line-height: 116px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  &_closed &__fullscreen {
+    display: none;
+  }
+  &__item {
+    margin: 28px 0;
+  }
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    &_active,
+    &:hover {
+      &::after {
+        display: block;
+        content: "";
+        width: 90px;
+        margin: -3px auto 0;
+        border-bottom: 3px solid #fff;
+      }
+    }
+  }
+}
+.developer {
+  width: 100%;
+  max-width: 580px;
+  margin: 20px auto;
+  text-align: center;
+  color: #fff;
+  &__svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 92%;
+    height: 100%;
+    max-height: 273px;
+    fill: currentColor;
+    stroke: currentColor;
+    opacity: .07;
+  }
+  &__photo-wrap {
+    position: relative;
+    width: 141px;
+    height: 141px;
+    margin: 0 auto 20px;
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  &__photo {
+    max-width: 100%;
+  }
+  &__name {
+    position: relative;
+    font-family: "RobotoMedium", sans-serif;
+    font-size: 35px;
+    margin-bottom: 7px;
+  }
+  &__text {
+    position: relative;
+    //font-family: "RobotoRegular", sans-serif;
+    //font-size: 16px;
+  }
+}
+.header__developer {
+  margin: 18px auto 210px;
+  position: relative;
+  padding: 35px 0 12px;
+}
+.main {
+  //padding: 10px 0;
+  background: linear-gradient(90deg, #f2f0e8 50%, #f4f5f0 50%);
+  &-col-1 {
+    background: #f2f0e8;
+    padding: 0 77px 0 80px;
+  }
+  &-col-2 {
+    background: #f4f5f0;
+    padding: 0 39px;
+  }
+}
+.heading {
+  font-family: "SansusWebissimoRegular", sans-serif;
+  font-size: 63px;
+  margin: 9px 0;
+  line-height: 66px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.heading-line {
+  font-family: "SansusWebissimoRegular", sans-serif;
+  font-size: 35px;
+  margin: 14px 0;
+  text-transform: uppercase;
+  text-align: center;
+  &::after {
+    display: block;
+    content: "";
+    width: 90px;
+    margin: 11px auto 0;
+    border-bottom: 3px solid #000;
+  }
+}
+.main-col-2__heading-line {
+  margin: 12px 0 36px;
+}
+.developer-photo {
+  margin: 50px 0 27px;
+  &__image {
+    min-height: 390px;
+  }
+}

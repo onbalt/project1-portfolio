@@ -42,7 +42,15 @@ block content
         .contacts.map__contacts
             h2.heading-line.contacts__heading-line Контакты
             ul.contacts__list
-                li.contacts__item Skype
-                li.contacts__item Phone
-                li.contacts__item Mail
-                li.contacts__item Address
+                li.contacts__item
+                    +svgItem('contacts', 'skype_n')
+                    span.contacts__title Skype
+                li.contacts__item
+                    +svgItem('contacts', 'phone_n')
+                    span.contacts__title Phone
+                li.contacts__item
+                    +svgItem('contacts', 'envelope_n')
+                    span.contacts__title Mail
+                li.contacts__item
+                    +svgItem('contacts', 'map_n')
+                    span.contacts__title Address
