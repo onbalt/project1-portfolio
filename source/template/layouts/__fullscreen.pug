@@ -1,0 +1,18 @@
+block variables
+include ../common/__settings
+include ../mixins/__common
+doctype html
+html
+    head
+        include head
+
+    body
+        header.header.header_fullscreen
+            .wrapper.header__wrapper
+                .header__side-wrap
+                    .right-side.header__right-side
+                        a.header__btn(href="#auth") Авторизоваться
+        main.main.main_fullscreen
+            block content
+        footer.footer.footer_fullscreen
+            .footer-copyright.footer-copyright_fullscreen &copy; Boris Dvorianchikov | Создано с любовью в LoftSchool | 2016

@@ -9,3 +9,10 @@ mixin footer-menu__list(list)
         each item in list
             li.footer-menu__item
                 a.footer-menu__link(class={"footer-menu__link_active": pageLink === item.link} href=`${item.link}`)= item.name
+
+mixin index-menu__list(list)
+    ul.index-menu__list
+        each item in list
+            li.index-menu__item
+                a.index-menu__link(class={"index-menu__link_active": pageLink === item.link} href=`${item.link}`)= item.name
+        .clearfix

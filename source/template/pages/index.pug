@@ -1,7 +1,32 @@
-extends ../_template
+extends ../_index
 
 block variables
   - var title = 'Home page'
 
 block content
-  include ../common/_greating
+  -
+    var menuIndex = [
+      {
+        name: 'Мои работы',
+        link: 'works.html'
+      },
+      {
+        name: 'Обо мне',
+        link: 'about.html'
+      },
+      {
+        name: 'Блог',
+        link: 'blog.html'
+      }
+    ]
+  .developer.main__developer
+    //.header__developer-svg
+    //+svgItem("developer", "stars1")
+    //-.developer_inner
+    .developer__photo-wrap
+      img.developer__photo(src="/assets/img/avatar.jpg")
+    .developer__name Boris Dvorianchikov
+    .developer__text Личный сайт веб разработчика
+    .index-socials
+      +socials(socialLinks)
+    +index-menu__list(menuIndex)

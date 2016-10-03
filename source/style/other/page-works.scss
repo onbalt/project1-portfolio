@@ -123,6 +123,63 @@
     font-weight: 600;
   }
 }
-.works-about-form {
-  height: 850px;
+.works-about {
+  &-form {
+    //height: 850px;
+    &__heading-line {
+      color: #fff;
+      padding: 0;
+      margin: 0 0 30px;
+      line-height: 1.8;
+      &::after {
+        border-bottom: 3px solid rgba(255,255,255,.5);
+      }
+    }
+  }
+  &__form {
+    //height: 430px;
+    width: 340px;
+    margin: 30px auto 320px;
+    background: rgba(255,255,255,.1);
+    padding: 30px 20px;
+    position: relative;
+  }
+  &__input {
+    width: 100%;
+    height: 45px;
+    background: rgba(255,255,255,.1);
+    border: none;
+    margin: 0 0 20px;
+    padding: 10px 15px;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  &__textarea {
+    width: 100%;
+    height: 130px;
+    background: rgba(255,255,255,.1);
+    border: none;
+    margin: 0 0 35px;
+    padding: 10px 15px;
+    color: #fff;
+    box-sizing: border-box;
+    resize: none;
+  }
+  &__btn {
+    background: #004cd1;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    color: #fff;
+    height: 45px;
+    cursor: pointer;
+    &_clear {
+      right: 0;
+      left: auto;
+      background: none;
+      opacity: .5;
+    }
+  }
 }

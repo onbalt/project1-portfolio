@@ -70,17 +70,23 @@
     &__link {
       color: #fff;
       text-decoration: none;
-      &_active,
-      &:hover {
+      &:hover, &:active, &:focus {
         text-decoration: underline;
       }
     }
+  }
+  &_fullscreen {
+    height: 60px;
+    margin: -60px 0 0;
   }
   &-copyright {
     background: rgba(8,60,150,.85);
     height: 35px;
     text-align: center;
     padding: 3px 0 0;
+    &_fullscreen {
+      background: none;
+    }
   }
 }
 .socials__list_lighter {
