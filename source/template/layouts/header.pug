@@ -1,5 +1,5 @@
-header.header
-    .wrapper
+header.header(class={"header_theme_dark": pageAlias === 'works'})
+    .wrapper.header__wrapper
         .header__side-wrap
             .left-side.header__left-side
                 +socials(socialLinks)
@@ -23,3 +23,4 @@ header.header
             .developer__text Личный сайт веб разработчика
         .scroll-down
         .clearfix
+    block header_heading

@@ -2,10 +2,10 @@ mixin menu__list(list)
     ul.menu__list
         each item in list
             li.menu__item
-                a.menu__link(class={menu__link_active: pageAlias === item.link} href=`${item.link}`)= item.name
+                a.menu__link(class={menu__link_active: pageLink === item.link} href=`${item.link}`)= item.name
 
 mixin footer-menu__list(list)
     ul.footer-menu__list
         each item in list
             li.footer-menu__item
-                a.footer-menu__link(class={"footer-menu__link_active": pageAlias === item.link} href=`${item.link}`)= item.name
+                a.footer-menu__link(class={"footer-menu__link_active": pageLink === item.link} href=`${item.link}`)= item.name

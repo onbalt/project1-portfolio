@@ -12,11 +12,12 @@
 
 html {
   position: relative;
-  min-height: 100%;
+  //min-height: 100%;
+  height: 100%;
 }
 body {
-  margin: 0;
   //margin: 0 0 185px;
+  height: 100%;
   min-width: 1200px;
   font-family: "RobotoRegular", sans-serif;
   font-size: 16px;
@@ -49,10 +50,14 @@ p {
 
 .header{
   position: relative;
-  min-height: 650px;
-  max-height: 880px;
-  background: #223b65 center top no-repeat url("/assets/img/header_bg.jpg");
+  min-height: 370px;
+  //max-height: 880px;
+  height: 100%;
+  background: #223b65 center no-repeat url("/assets/img/header_bg.jpg");
   overflow: hidden;
+  &__wrapper {
+    height: 100%;
+  }
   &__side-wrap {
     height: 100px;
   }
@@ -70,6 +75,48 @@ p {
       repeat: no-repeat;
       size: 50% 100%;
     }
+  }
+  &_theme_dark {
+    min-height: 785px;
+    &::before {
+      background: {
+        image:
+          linear-gradient(-170deg, transparent 166px, #0d1120 167px),
+          linear-gradient(170deg, transparent 166px, #0d1120 167px);
+      }
+      bottom: 184px;
+      opacity: .85;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 184px;
+      background: #0d1120;
+      opacity: .85;
+    }
+  }
+  &-heading {
+    position: absolute;
+    z-index: 9;
+    bottom: -10px;
+    width: 100%;
+    height: 188px;
+  }
+  &-heading__svg {
+    color: #fff;
+    fill: currentColor;
+    stroke: currentColor;
+    margin: 0 auto;
+    width: 400px;
+    height: 188px;
+    display: block;
+    bottom: 9px;
+    transform: rotate(189deg);
+    position: relative;
+    opacity: .15;
+    //left: -22px;
   }
 }
 .socials{
@@ -105,8 +152,6 @@ p {
   &__svg {
     margin: 28px 31px;
     fill: #fff;
-  }
-  &__svg-hamburger {
     width: 40px;
     height: 35px;
   }
@@ -176,7 +221,7 @@ p {
     width: 141px;
     height: 141px;
     margin: 0 auto 20px;
-    border-radius: 100px;
+    border-radius: 50%;
     overflow: hidden;
   }
   &__photo {
@@ -195,8 +240,10 @@ p {
   }
 }
 .header__developer {
-  margin: 18px auto 210px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -182px 0 0 -290px;
   padding: 35px 0 12px;
 }
 .main {
@@ -221,6 +268,12 @@ p {
   letter-spacing: 1px;
   text-align: center;
 }
+.header-heading__heading {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  top: -133px;
+}
 .heading-line {
   font-family: "SansusWebissimoRegular", sans-serif;
   font-size: 35px;
@@ -233,6 +286,13 @@ p {
     width: 90px;
     margin: 11px auto 0;
     border-bottom: 3px solid #000;
+  }
+  &_after_lighter {
+    margin: 28px 0;
+    &::after {
+      margin-top: 23px;
+      border-color: #878e9e;
+    }
   }
 }
 .main-col-2__heading-line {

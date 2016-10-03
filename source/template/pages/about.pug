@@ -1,7 +1,8 @@
 extends ../_template
 
 block variables
-    - var pageAlias = 'about.html'
+    - var pageAlias = 'about'
+    - var pageLink = pageAlias + '.html'
     - var pageTitle = 'Обо мне'
 
 block content
@@ -40,7 +41,7 @@ block content
     .map
         .map__wrap
         .contacts.map__contacts
-            h2.heading-line.contacts__heading-line Контакты
+            h2.heading-line.heading-line_after_lighter Контакты
             ul.contacts__list
                 li.contacts__item
                     +svgItem('contacts', 'skype_n')

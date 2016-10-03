@@ -14,13 +14,6 @@
   }
 }
 .contacts {
-  &__heading-line {
-    margin: 28px 0;
-    &::after {
-      margin-top: 23px;
-      border-color: #878e9e;
-    }
-  }
   &__list {
     list-style: none;
     margin: 18px 0;

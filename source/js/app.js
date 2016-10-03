@@ -20,7 +20,7 @@ $(document).ready(function() {
     $(path).css({'stroke-dasharray': pathLength, 'stroke-dashoffset': pathLength});
     setTimeout(function() {
       $(path).css({'opacity': '.'+percent, 'stroke-dashoffset': pathPercentLength});
-    }, 400 * (i + 3));
+    }, 600 * (i + 4));
   });
 
 });

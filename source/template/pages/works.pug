@@ -1,0 +1,63 @@
+extends ../_template
+
+block variables
+    - var pageAlias = 'works'
+    - var pageLink = pageAlias + '.html'
+    - var pageTitle = 'Мои работы'
+
+block header_heading
+    .header-heading
+        +svgItem("header-heading", "stars2")
+        h1.heading.header-heading__heading Мои работы
+block content
+    .wrapper
+        .portfolio
+            .portfolio__current
+                .heading-line.heading-line_after_lighter.
+                    Test Сайт школы
+                    онлайн образования
+                .portfolio__current-technic PHP, JS, HTML, CSS
+                a.portfolio__current-link(href="about.html" target="_blank")
+                    +svgItem("portfolio-link", "link")
+                    span Посмотреть сайт
+                .clearfix
+            .portfolio__slider
+                a.portfolio__current-img-link(href="about.html" target="_blank")
+                    img.portfolio__current-img(src="/assets/img/portfolio_last-big.png")
+                a.portfolio__link(href="#prev")
+                    img.portfolio__img(src="/assets/img/portfolio_prev-th.png")
+                    .portfolio__link-overlay
+                        +svgItem("portfolio-link", "portf_arrow_down")
+                a.portfolio__link(href="#next")
+                    img.portfolio__img(src="/assets/img/portfolio_next-th.png")
+                    .portfolio__link-overlay
+                        +svgItem("portfolio-link", "portf_arrow_up")
+                .clearfix
+        .clearfix
+    .works-about
+        .wrapper
+            .works-about-heading
+                +svgItem("works-about-heading", "stars3")
+                h2.heading.works-about__heading Что обо мне<br> говорят
+            .opinions
+                ul.opinions__list
+                    li.opinions__item
+                        .opinions__photo-wrap
+                            img.opinions__photo(src="/assets/img/opinion_author-1.jpg")
+                        .opinions__text.
+                            Этот парень проходил обучение веб-разработке не где-то,
+                            а в LoftSchool! 2 месяца только самых тяжелых испытаний
+                            и бессонных ночей!
+                        .opinions__author Ковальчук Дмитрий
+                        .opinions__author-job — основатель Loftschool
+                    li.opinions__item
+                        .opinions__photo-wrap
+                            img.opinions__photo(src="/assets/img/opinion_author-2.jpg")
+                        .opinions__text.
+                            Этот код выдержет любые испытания. Только пожалуйста,
+                            не загружайте сайт на слишком старых браузерах!
+                        .opinions__author Зар Захаров
+                        .opinions__author-job — преподаватель
+            .clearfix
+            .works-about-form
+            .clearfix
