@@ -1,6 +1,9 @@
-#Учебная сборка Loftschool (выпускной проект №1) 
+#Выпускной проект №1 (на основе Учебной сборки Loftschool)
 
 *Boris Dvorianchikov*
+
+***Project in web:***
+http://project1.onbalt.ru/
 
 Stack:
  - Gulp 4.0

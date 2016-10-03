@@ -1,4 +1,4 @@
-header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'})
+header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'} class={"header_compact": pageAlias === 'blog'})
     .wrapper.header__wrapper
         .header__side-wrap
             .left-side.header__left-side
@@ -13,14 +13,15 @@ header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'
                                 a.menu__close-link(href="#")
                                     +svgItem('menu', 'hamburger')
                             +menu__list(menuHeader)
-        .developer.header__developer
+        .developer.header__developer(class={"header__developer_compact": pageAlias === 'blog'})
             //.header__developer-svg
             +svgItem("developer", "stars1")
             //-.developer_inner
             .developer__photo-wrap
                 img.developer__photo(src="/assets/img/avatar.jpg")
-            .developer__name Boris Dvorianchikov
-            .developer__text Личный сайт веб разработчика
+            block header_developer-text
+                .developer__name Boris Dvorianchikov
+                .developer__text Личный сайт веб разработчика
         .scroll-down
         .clearfix
     block header_heading

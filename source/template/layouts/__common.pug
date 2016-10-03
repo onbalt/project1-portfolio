@@ -9,6 +9,6 @@ html
     body
         include header
         include sidebar
-        main.main
+        main.main(class={"main_compact": pageAlias === 'blog'})
             block content
         include footer
