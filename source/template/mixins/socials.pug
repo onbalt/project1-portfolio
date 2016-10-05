@@ -6,4 +6,3 @@ mixin socials(list,modifier)
                 li(class={"socials__item": modifier} class="socials__item" + modifier)
                     a(class={"socials__link": modifier} class="socials__link" + modifier class="socials__link_" + item.name  href=item.link target="_blank")
                         +svgItem("socials", item.name)
-            .clearfix

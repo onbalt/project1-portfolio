@@ -59,6 +59,7 @@
       font-family: "RobotoMedium", sans-serif;
       font-size: 16px;
       line-height: 24px;
+      @include clearfix();
     }
     &__item {
       float: left;
@@ -70,6 +71,7 @@
     &__link {
       color: #fff;
       text-decoration: none;
+      &_active,
       &:hover, &:active, &:focus {
         text-decoration: underline;
       }

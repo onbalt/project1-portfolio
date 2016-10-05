@@ -10,30 +10,28 @@ block header_heading
         +svgItem("header-heading", "stars2")
         h1.heading.header-heading__heading Мои работы
 block content
-    .wrapper
-        .portfolio
-            .portfolio__current
-                .heading-line.heading-line_after_lighter.
-                    Test Сайт школы
-                    онлайн образования
-                .portfolio__current-technic PHP, JS, HTML, CSS
-                a.portfolio__current-link(href="about.html" target="_blank")
-                    +svgItem("portfolio-link", "link")
-                    span Посмотреть сайт
-                .clearfix
-            .portfolio__slider
-                a.portfolio__current-img-link(href="about.html" target="_blank")
-                    img.portfolio__current-img(src="/assets/img/portfolio_last-big.png")
-                a.portfolio__link(href="#prev")
-                    img.portfolio__img(src="/assets/img/portfolio_prev-th.png")
-                    .portfolio__link-overlay
-                        +svgItem("portfolio-link", "portf_arrow_down")
-                a.portfolio__link(href="#next")
-                    img.portfolio__img(src="/assets/img/portfolio_next-th.png")
-                    .portfolio__link-overlay
-                        +svgItem("portfolio-link", "portf_arrow_up")
-                .clearfix
-        .clearfix
+    .works-portfolio
+        .wrapper
+            .portfolio
+                .portfolio__current
+                    .heading-line.heading-line_after_lighter.
+                        Test Сайт школы
+                        онлайн образования
+                    .portfolio__current-technic PHP, JS, HTML, CSS
+                    a.portfolio__current-link(href="about.html" target="_blank")
+                        +svgItem("portfolio-link", "link")
+                        span Посмотреть сайт
+                .portfolio__slider
+                    a.portfolio__current-img-link(href="about.html" target="_blank")
+                        img.portfolio__current-img(src="/assets/img/portfolio_last-big.png")
+                    a.portfolio__link(href="#prev")
+                        img.portfolio__img(src="/assets/img/portfolio_prev-th.png")
+                        .portfolio__link-overlay
+                            +svgItem("portfolio-link", "portf_arrow_down")
+                    a.portfolio__link(href="#next")
+                        img.portfolio__img(src="/assets/img/portfolio_next-th.png")
+                        .portfolio__link-overlay
+                            +svgItem("portfolio-link", "portf_arrow_up")
     .works-about
         .wrapper
             .works-about-heading
@@ -58,7 +56,6 @@ block content
                             не загружайте сайт на слишком старых браузерах!
                         .opinions__author Зар Захаров
                         .opinions__author-job — преподаватель
-            .clearfix
             .works-about-form
                 form.works-about__form(method="post")
                     h3.heading-line.works-about-form__heading-line Связаться со мной
@@ -66,5 +63,4 @@ block content
                     input.works-about__input(name="name" placeholder="Ваш email")
                     textarea.works-about__textarea(name="name" placeholder="Ваше сообщение")
                     input.works-about__btn(disabled="disabled" name="submit" type="submit" value="Отправить")
-                    input.works-about__btn.works-about__btn_clear(name="clear" type="button" value="Очистить")
-            .clearfix
+                    input.works-about__btn.works-about__btn_clear(name="reset" type="reset" value="Очистить")

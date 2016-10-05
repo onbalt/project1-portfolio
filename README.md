@@ -16,10 +16,4 @@ Getting started:
 4. npm install
 6. run "gulp" command to start
 
-Changelog:
-
-*25.09.2016*
-
-1. Added task **sprite:png** to generate sprite image and sass styles from .png and .gif files in ./source/sprite/
-2. Added watching task **copy:font** to copy font files from ./source/fonts/
-3. Changes in README.md
+Changelog corresponds with commits.

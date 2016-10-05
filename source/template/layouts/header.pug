@@ -12,7 +12,7 @@ header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'
                             .right-side
                                 a.menu__close-link(href="#")
                                     +svgItem('menu', 'hamburger')
-                            +menu__list(menuHeader)
+                            +menu__list(menuMain)
         .developer.header__developer(class={"header__developer_compact": pageAlias === 'blog'})
             //.header__developer-svg
             +svgItem("developer", "stars1")
@@ -23,5 +23,4 @@ header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'
                 .developer__name Boris Dvorianchikov
                 .developer__text Личный сайт веб разработчика
         .scroll-down
-        .clearfix
     block header_heading

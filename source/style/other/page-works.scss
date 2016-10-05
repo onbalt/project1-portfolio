@@ -95,6 +95,7 @@
     color: #fff;
     font-style: italic;
     line-height: 26px;
+    @include clearfix();
   }
   &__item {
     float: left;

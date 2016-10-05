@@ -14,5 +14,4 @@ mixin index-menu__list(list)
     ul.index-menu__list
         each item in list
             li.index-menu__item
-                a.index-menu__link(class={"index-menu__link_active": pageLink === item.link} href=`${item.link}`)= item.name
-        .clearfix
+                a.index-menu__link(href=`${item.link}`)= item.name

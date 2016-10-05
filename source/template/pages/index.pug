@@ -1,24 +1,11 @@
 extends ../_index
 
 block variables
-  - var title = 'Home page'
+  - var pageAlias = 'index'
+  - var pageLink = pageAlias + '.html'
+  - var pageTitle = 'Личный сайт веб разработчика'
 
 block content
-  -
-    var menuIndex = [
-      {
-        name: 'Мои работы',
-        link: 'works.html'
-      },
-      {
-        name: 'Обо мне',
-        link: 'about.html'
-      },
-      {
-        name: 'Блог',
-        link: 'blog.html'
-      }
-    ]
   .developer.main__developer
     //.header__developer-svg
     //+svgItem("developer", "stars1")
