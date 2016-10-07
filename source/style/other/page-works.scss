@@ -1,45 +1,45 @@
 .portfolio {
   height: 100%;
   &__current {
-    width: 50%;
     float: left;
+    padding: 20% 0 0;
+    width: 50%;
     height: 100%;
     text-align: center;
-    padding: 20% 0 0;
   }
   &__slider {
-    width: 50%;
     float: right;
+    width: 50%;
     height: 100%;
     background: #e3e2de;
   }
   &-link__svg {
+    margin: 99px 0;
     width: 44px;
     height: 30px;
     color: #fff;
     fill: currentColor;
-    margin: 99px 0;
     &_file-link {
+      margin: 0 10px -5px 0;
       width: 20px;
       height: 20px;
-      margin: 0 10px -5px 0;
     }
   }
   &__current {
     &-technic {
-      font-family: "RobotoMedium", sans-serif;
-      color: #083c96;
       margin: 0 0 60px;
+      color: #083c96;
+      font-family: "RobotoMedium", sans-serif;
     }
     &-link {
+      padding: 12px 20px 12px 20px;
       background: #004cd1;
       color: #fff;
       text-decoration: none;
-      padding: 12px 20px 12px 20px;
     }
     &-img-link {
-      min-height: 525px;
       display: block;
+      min-height: 525px;
       text-align: center;
     }
     &-img {
@@ -47,15 +47,15 @@
     }
   }
   &__link {
+    position: relative;
     display: block;
     float: left;
-    position: relative;
     &-overlay {
-      background: rgba(170, 171, 183, 0.7);
       position: absolute;
-      height: 100%;
-      width: 100%;
       top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(170, 171, 183, 0.7);
       text-align: center;
     }
   }
@@ -67,50 +67,50 @@
     margin: 0 0 50px;
     &__svg {
       position: absolute;
-      color: #fff;
-      fill: currentColor;
-      stroke: currentColor;
+      left: 50%;
+      display: block;
+      margin: 33px 0 0 -200px;
       width: 400px;
       height: 220px;
-      display: block;
-      transform: rotate(25deg);
+      color: #fff;
       opacity: .15;
-      margin: 33px 0 0 -200px;
-      left: 50%;
+      transform: rotate(25deg);
+      fill: currentColor;
+      stroke: currentColor;
     }
   }
   &__heading {
-    color: #fff;
-    padding: 70px 0 0;
     margin: 0;
+    padding: 70px 0 0;
+    color: #fff;
   }
 }
 .opinions {
-  width: 70%;
   margin: 0 auto;
+  width: 70%;
   &__list {
-    list-style: none;
     margin: 0;
     padding: 0;
     color: #fff;
+    list-style: none;
     font-style: italic;
     line-height: 26px;
     @include clearfix();
   }
   &__item {
-    float: left;
-    width: 50%;
-    margin: 0 0 30px;
     position: relative;
+    float: left;
+    margin: 0 0 30px;
+    width: 50%;
     text-align: center;
   }
   &__photo-wrap {
     position: relative;
+    overflow: hidden;
+    margin: 0 auto 20px;
     width: 80px;
     height: 80px;
-    margin: 0 auto 20px;
     border-radius: 50%;
-    overflow: hidden;
   }
   &__photo {
     max-width: 100%;
@@ -120,17 +120,16 @@
     text-align: left;
   }
   &__author {
-    font-family: "RobotoBold", sans-serif;
     font-weight: 600;
+    font-family: "RobotoBold", sans-serif;
   }
 }
 .works-about {
   &-form {
-    //height: 850px;
     &__heading-line {
-      color: #fff;
-      padding: 0;
       margin: 0 0 30px;
+      padding: 0;
+      color: #fff;
       line-height: 1.8;
       &::after {
         border-bottom: 3px solid rgba(255,255,255,.5);
@@ -138,43 +137,42 @@
     }
   }
   &__form {
-    //height: 430px;
-    width: 340px;
-    margin: 30px auto 320px;
-    background: rgba(255,255,255,.1);
-    padding: 30px 20px;
     position: relative;
+    margin: 30px auto 320px;
+    padding: 30px 20px;
+    width: 340px;
+    background: rgba(255,255,255,.1);
   }
   &__input {
-    width: 100%;
-    height: 45px;
-    background: rgba(255,255,255,.1);
-    border: none;
+    box-sizing: border-box;
     margin: 0 0 20px;
     padding: 10px 15px;
+    width: 100%;
+    height: 45px;
+    border: none;
+    background: rgba(255,255,255,.1);
     color: #fff;
-    box-sizing: border-box;
   }
   &__textarea {
-    width: 100%;
-    height: 130px;
-    background: rgba(255,255,255,.1);
-    border: none;
+    box-sizing: border-box;
     margin: 0 0 35px;
     padding: 10px 15px;
+    width: 100%;
+    height: 130px;
+    border: none;
+    background: rgba(255,255,255,.1);
     color: #fff;
-    box-sizing: border-box;
     resize: none;
   }
   &__btn {
-    background: #004cd1;
-    border: none;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 50%;
-    color: #fff;
     height: 45px;
+    border: none;
+    background: #004cd1;
+    color: #fff;
     cursor: pointer;
     &_clear {
       right: 0;

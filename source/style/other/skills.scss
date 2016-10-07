@@ -1,13 +1,13 @@
 .skills {
   &__header {
-    font-size: 28px;
     margin: 0.85em 0;
+    font-size: 28px;
     font-family: "RobotoMedium", sans-serif;
   }
   &__list {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
     @include clearfix();
   }
   &__item {
@@ -37,26 +37,26 @@
     }
     &-svg-path {
       opacity: 0;
+      transition: all 4s ease-out;
       fill: none;
       stroke: #004cd1;
       stroke-width: 20px;
-      transition: all 4s ease-out;
       stroke-dasharray: 500;
       stroke-dashoffset: 500;
     }
     &-content {
       position: absolute;
       display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 20px;
       width: 100%;
       height: 100%;
-      padding: 20px;
-      box-sizing: border-box;
-      flex-direction: column;
-      justify-content: center;
       color: #243994;
-      font-family: "RobotoMedium", sans-serif;
-      font-size: 13px;
       text-align: center;
+      font-size: 13px;
+      font-family: "RobotoMedium", sans-serif;
+      justify-content: center;
     }
   }
 }
