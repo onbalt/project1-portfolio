@@ -2,7 +2,7 @@
   &__header {
     margin: 0.85em 0;
     font-size: 28px;
-    font-family: "RobotoMedium", sans-serif;
+    font-weight: $font-weight__medium;
   }
   &__list {
     margin: 0;
@@ -36,10 +36,11 @@
       height: 100%;
     }
     &-svg-path {
+      color: $color-text__accent;
       opacity: 0;
       transition: all 4s ease-out;
       fill: none;
-      stroke: #004cd1;
+      stroke: currentColor;
       stroke-width: 20px;
       stroke-dasharray: 500;
       stroke-dashoffset: 500;
@@ -54,8 +55,8 @@
       height: 100%;
       color: #243994;
       text-align: center;
+      font-weight: $font-weight__medium;
       font-size: 13px;
-      font-family: "RobotoMedium", sans-serif;
       justify-content: center;
     }
   }

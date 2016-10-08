@@ -1,6 +1,6 @@
 /* font-family: "RobotoRegular"; */
 @font-face {
-  font-family: "RobotoRegular";
+  font-family: "Roboto";
   src: url("/assets/fonts/RobotoRegular/RobotoRegular.eot");
   src: url("/assets/fonts/RobotoRegular/RobotoRegular.eot?#iefix")format("embedded-opentype"),
   url("/assets/fonts/RobotoRegular/RobotoRegular.woff") format("woff"),
@@ -10,37 +10,37 @@
 }
 /* font-family: "RobotoLight"; */
 @font-face {
-  font-family: "RobotoLight";
+  font-family: "Roboto";
   src: url("/assets/fonts/RobotoLight/RobotoLight.eot");
   src: url("/assets/fonts/RobotoLight/RobotoLight.eot?#iefix")format("embedded-opentype"),
   url("/assets/fonts/RobotoLight/RobotoLight.woff") format("woff"),
   url("/assets/fonts/RobotoLight/RobotoLight.ttf") format("truetype");
   font-style: normal;
-  font-weight: normal;
+  font-weight: $font-weight__light;
 }
 /* font-family: "RobotoMedium"; */
 @font-face {
-  font-family: "RobotoMedium";
+  font-family: "Roboto";
   src: url("/assets/fonts/RobotoMedium/RobotoMedium.eot");
   src: url("/assets/fonts/RobotoMedium/RobotoMedium.eot?#iefix")format("embedded-opentype"),
   url("/assets/fonts/RobotoMedium/RobotoMedium.woff") format("woff"),
   url("/assets/fonts/RobotoMedium/RobotoMedium.ttf") format("truetype");
   font-style: normal;
-  font-weight: normal;
+  font-weight: $font-weight__medium;
 }
 /* font-family: "RobotoBold"; */
 @font-face {
-  font-family: "RobotoBold";
+  font-family: "Roboto";
   src: url("/assets/fonts/RobotoBold/RobotoBold.eot");
   src: url("/assets/fonts/RobotoBold/RobotoBold.eot?#iefix")format("embedded-opentype"),
   url("/assets/fonts/RobotoBold/RobotoBold.woff") format("woff"),
   url("/assets/fonts/RobotoBold/RobotoBold.ttf") format("truetype");
   font-style: normal;
-  font-weight: normal;
+  font-weight: $font-weight__bold;
 }
 /* font-family: "SansusWebissimoRegular"; */
 @font-face {
-  font-family: "SansusWebissimoRegular";
+  font-family: "SansusWebissimo";
   src: url("/assets/fonts/SansusWebissimoRegular/SansusWebissimoRegular.eot");
   src: url("/assets/fonts/SansusWebissimoRegular/SansusWebissimoRegular.eot?#iefix")format("embedded-opentype"),
   url("/assets/fonts/SansusWebissimoRegular/SansusWebissimoRegular.woff") format("woff"),

@@ -17,8 +17,7 @@
     margin: 99px 0;
     width: 44px;
     height: 30px;
-    color: #fff;
-    fill: currentColor;
+    color: $color-text__main;
     &_file-link {
       margin: 0 10px -5px 0;
       width: 20px;
@@ -28,13 +27,13 @@
   &__current {
     &-technic {
       margin: 0 0 60px;
-      color: #083c96;
-      font-family: "RobotoMedium", sans-serif;
+      color: $color-text__accent2;
+      font-weight: $font-weight__medium;
     }
     &-link {
       padding: 12px 20px 12px 20px;
-      background: #004cd1;
-      color: #fff;
+      background: $color-text__accent;
+      color: $color-text__main;
       text-decoration: none;
     }
     &-img-link {
@@ -72,17 +71,15 @@
       margin: 33px 0 0 -200px;
       width: 400px;
       height: 220px;
-      color: #fff;
+      color: $color-text__main;
       opacity: .15;
       transform: rotate(25deg);
-      fill: currentColor;
-      stroke: currentColor;
     }
   }
   &__heading {
     margin: 0;
     padding: 70px 0 0;
-    color: #fff;
+    color: $color-text__main;
   }
 }
 .opinions {
@@ -91,7 +88,7 @@
   &__list {
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: $color-text__main;
     list-style: none;
     font-style: italic;
     line-height: 26px;
@@ -120,8 +117,7 @@
     text-align: left;
   }
   &__author {
-    font-weight: 600;
-    font-family: "RobotoBold", sans-serif;
+    font-weight: $font-weight__bold;
   }
 }
 .works-about {
@@ -129,7 +125,7 @@
     &__heading-line {
       margin: 0 0 30px;
       padding: 0;
-      color: #fff;
+      color: $color-text__main;
       line-height: 1.8;
       &::after {
         border-bottom: 3px solid rgba(255,255,255,.5);
@@ -151,7 +147,7 @@
     height: 45px;
     border: none;
     background: rgba(255,255,255,.1);
-    color: #fff;
+    color: $color-text__main;
   }
   &__textarea {
     box-sizing: border-box;
@@ -161,7 +157,7 @@
     height: 130px;
     border: none;
     background: rgba(255,255,255,.1);
-    color: #fff;
+    color: $color-text__main;
     resize: none;
   }
   &__btn {
@@ -171,8 +167,8 @@
     width: 50%;
     height: 45px;
     border: none;
-    background: #004cd1;
-    color: #fff;
+    background: $color-text__accent;
+    color: $color-text__main;
     cursor: pointer;
     &_clear {
       right: 0;

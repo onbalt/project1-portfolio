@@ -1,19 +1,23 @@
 html {
   position: relative;
   height: 100%;
-  font-size: 16px;
+  font-size: $font-size__base;
 }
 body {
   min-width: 1200px;
   height: 100%;
-  font-size: 16px;
-  font-family: "RobotoRegular", sans-serif;
+  color: $color-text__base;
+  font-size: $font-size__base;
+  font-family: $font-family__base;
 }
 .wrapper {
   position: relative;
   margin: 0 auto;
   width: 1200px;
   @include clearfix();
+}
+a {
+  transition: 0.4s;
 }
 p {
   margin: .7em 0 .7em;
@@ -56,8 +60,9 @@ p {
       height: 169px;
       content: "";
       background: {
-        image: linear-gradient(-170deg, transparent 166px, #f2f0e8 167px),
-        linear-gradient(170deg, transparent 166px, #f4f5f0 167px);
+        image:
+          linear-gradient(-170deg, transparent 166px, $color-bg__col-1 167px),
+          linear-gradient(170deg, transparent 166px, $color-bg__col-2 167px);
         position: 0 100%, 100% 100%;
         repeat: no-repeat;
         size: 50% 100%;
@@ -69,8 +74,8 @@ p {
     &::before {
       background: {
         image:
-          linear-gradient(-170deg, transparent 166px, #0d1120 167px),
-          linear-gradient(170deg, transparent 166px, #0d1120 167px);
+          linear-gradient(-170deg, transparent 166px, $color-bg__theme_dark 167px),
+          linear-gradient(170deg, transparent 166px, $color-bg__theme_dark 167px);
       }
       bottom: 184px;
       opacity: .85;
@@ -80,7 +85,7 @@ p {
       bottom: 0;
       width: 100%;
       height: 184px;
-      background: #0d1120;
+      background: $color-bg__theme_dark;
       content: "";
       opacity: .85;
     }
@@ -91,8 +96,8 @@ p {
     &::before {
       background: {
         image:
-          linear-gradient(-170deg, transparent 166px, #faf8f0 167px),
-          linear-gradient(170deg, transparent 166px, #faf8f0 167px);
+          linear-gradient(-170deg, transparent 166px, $color-bg__compact 167px),
+          linear-gradient(170deg, transparent 166px, $color-bg__compact 167px);
       }
     }
   }
@@ -110,11 +115,9 @@ p {
     margin: 0 auto;
     width: 400px;
     height: 188px;
-    color: #fff;
+    color: $color-text__main;
     opacity: .15;
     transform: rotate(189deg);
-    fill: currentColor;
-    stroke: currentColor;
   }
   &__btn {
     position: relative;
@@ -122,8 +125,8 @@ p {
     display: block;
     margin: 20px;
     padding: 10px 25px;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid $color-text__main;
+    color: $color-text__main;
     text-decoration: none;
     transition: 0.4s;
     &:hover, &:active, &:focus {
@@ -146,18 +149,15 @@ p {
     height: 22px;
   }
   &__link {
-    color: #fff;
+    color: $color-text__main;
     &:hover, &:active, &:focus {
-      .socials__svg {
-        fill: #004cd1;
-      }
+      color: $color-text__accent;
     }
   }
   &__svg {
     max-width: 100%;
     max-height: 100%;
     transition: 0.4s;
-    fill: currentColor;
   }
 }
 .menu {
@@ -168,7 +168,7 @@ p {
     margin: 28px 31px;
     width: 40px;
     height: 35px;
-    fill: #fff;
+    fill: $color-text__main;
   }
   &__fullscreen {
     position: fixed;
@@ -189,7 +189,7 @@ p {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 63px;
-    font-family: "SansusWebissimoRegular", sans-serif;
+    font-family: $font-family__heading;
     line-height: 116px;
   }
   &_closed &__fullscreen {
@@ -200,13 +200,13 @@ p {
   }
   &__link {
     display: block;
-    color: #fff;
+    color: $color-text__menu;
     text-decoration: none;
     &::after {
       display: block;
       margin: -3px auto 0;
       width: 90px;
-      border-bottom: 3px solid #fff;
+      border-bottom: 3px solid $color-text__menu;
       content: "";
       opacity: 0;
       transition: 0.5s;
@@ -222,7 +222,7 @@ p {
   margin: 20px auto;
   max-width: 580px;
   width: 100%;
-  color: #fff;
+  color: $color-text__main;
   text-align: center;
   &__svg {
     position: absolute;
@@ -232,8 +232,6 @@ p {
     width: 92%;
     height: 100%;
     opacity: .07;
-    fill: currentColor;
-    stroke: currentColor;
   }
   &__photo-wrap {
     position: relative;
@@ -249,8 +247,8 @@ p {
   &__name {
     position: relative;
     margin-bottom: 7px;
+    font-weight: $font-weight__medium;
     font-size: 35px;
-    font-family: "RobotoMedium", sans-serif;
   }
   &__text {
     position: relative;
@@ -267,14 +265,14 @@ p {
   }
 }
 .main {
-  background: linear-gradient(90deg, #f2f0e8 50%, #f4f5f0 50%);
+  background: linear-gradient(90deg, $color-bg__col-1 50%, $color-bg__col-2 50%);
   &-col-1 {
     padding: 0 77px 0 80px;
-    background: #f2f0e8;
+    background: $color-bg__col-1;
   }
   &-col-2 {
     padding: 0 39px;
-    background: #f4f5f0;
+    background: $color-bg__col-2;
   }
   &_fullscreen {
     position: absolute;
@@ -285,7 +283,7 @@ p {
     background: none;
   }
   &_compact {
-    background: #faf8f0;
+    background: $color-bg__compact;
   }
   &__developer {
     position: absolute;
@@ -306,26 +304,26 @@ p {
   letter-spacing: 1px;
   font-weight: 400;
   font-size: 63px;
-  font-family: "SansusWebissimoRegular", sans-serif;
+  font-family: $font-family__heading;
   line-height: 66px;
 }
 .header-heading__heading {
   position: relative;
   top: -133px;
   margin: 0;
-  color: #fff;
+  color: $color-text__main;
 }
 .heading-line {
   margin: 14px 0;
   text-align: center;
   text-transform: uppercase;
   font-size: 35px;
-  font-family: "SansusWebissimoRegular", sans-serif;
+  font-family: $font-family__heading;
   &::after {
     display: block;
     margin: 11px auto 0;
     width: 90px;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid $color-text__base;
     content: "";
   }
   &_after_lighter {
@@ -358,7 +356,7 @@ p {
       padding: 0;
       list-style: none;
       text-align: center;
-      font-family: "RobotoMedium", sans-serif;
+      font-weight: $font-weight__medium;
       line-height: 36px;
       @include clearfix();
     }
@@ -368,7 +366,7 @@ p {
     &__item {
       float: left;
       margin: 0;
-      border-right: 1px #fff solid;
+      border-right: 1px $color-text__menu solid;
       &:last-of-type {
         border-right: none;
       }
@@ -377,7 +375,7 @@ p {
       display: block;
       padding: 7px 35px 7px 34px;
       background: rgba(0,76,209,.85);
-      color: #fff;
+      color: $color-text__menu;
       text-decoration: none;
       transition: 0.4s;
       &:hover, &:active, &:focus {
@@ -399,7 +397,7 @@ p {
     &__list {
       margin: 20px 0 0;
       padding: 0;
-      color: #566358;
+      color: $color-text__blog-menu;
       list-style: none;
       text-align: right;
       line-height: 26px;
@@ -412,15 +410,14 @@ p {
       margin: 10px 0;
       padding: 5px 15px;
       border-right: 3px transparent solid;
-      color: #566358;
+      color: $color-text__blog-menu;
       text-decoration: none;
       transition: 0.5s;
       &_active,
       &:hover, &:active, &:focus {
-        border-right: 3px #083c96 solid;
-        color: #083c96;
-        font-weight: 600;
-        font-family: "RobotoBold", sans-serif;
+        border-right: 3px $color-text__accent2 solid;
+        color: $color-text__accent2;
+        font-weight: $font-weight__bold;
       }
     }
   }

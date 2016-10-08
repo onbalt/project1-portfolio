@@ -4,9 +4,8 @@
   margin: -185px 0 0;
   width: 100%;
   height: 185px;
-  color: #fff;
-  font-size: 16px;
-  font-family: "RobotoLight", sans-serif;
+  color: $color-text__main;
+  font-weight: $font-weight__light;
   line-height: 26px;
   &-wrap {
     height: 185px - 38px;
@@ -55,8 +54,7 @@
       padding: 0;
       list-style: none;
       text-align: center;
-      font-size: 16px;
-      font-family: "RobotoMedium", sans-serif;
+      font-weight: $font-weight__medium;
       line-height: 24px;
       @include clearfix();
     }
@@ -68,7 +66,7 @@
       }
     }
     &__link {
-      color: #fff;
+      color: $color-text__menu;
       text-decoration: none;
       &_active,
       &:hover, &:active, &:focus {
