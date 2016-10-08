@@ -1,3 +1,5 @@
+@include breakpoint-set('default feature', max-width);
+
 $mobile: 480px;
 $tablet: 768px;
 $tablet2: 992px;

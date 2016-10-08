@@ -4,17 +4,41 @@ html {
   font-size: $font-size__base;
 }
 body {
-  min-width: 1200px;
+  //min-width: 1200px;
   height: 100%;
   color: $color-text__base;
   font-size: $font-size__base;
   font-family: $font-family__base;
+  @include breakpoint($desktop) {
+    min-width: $tablet2;
+  }
+  @include breakpoint($tablet2) {
+    min-width: $tablet;
+  }
+  @include breakpoint($tablet) {
+    min-width: $mobile;
+  }
+  @include breakpoint($mobile) {
+    min-width: 100%;
+  }
 }
 .wrapper {
   position: relative;
   margin: 0 auto;
   width: 1200px;
   @include clearfix();
+  @include breakpoint($desktop) {
+    width: $tablet2;
+  }
+  @include breakpoint($tablet2) {
+    width: $tablet;
+  }
+  @include breakpoint($tablet) {
+    width: $mobile;
+  }
+  @include breakpoint($mobile) {
+    width: 100%;
+  }
 }
 a {
   transition: 0.4s;
@@ -168,7 +192,7 @@ p {
     margin: 28px 31px;
     width: 40px;
     height: 35px;
-    fill: $color-text__main;
+    color: $color-text__main;
   }
   &__fullscreen {
     position: fixed;
