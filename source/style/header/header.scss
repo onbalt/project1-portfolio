@@ -2,6 +2,12 @@ html {
   position: relative;
   height: 100%;
   font-size: $font-size__base;
+  @include breakpoint($tablet) {
+    font-size: $font-size__base - 1px;
+  }
+  @include breakpoint($mobile) {
+    font-size: $font-size__base - 2px;
+  }
 }
 body {
   //min-width: 1200px;
@@ -21,6 +27,9 @@ body {
   @include breakpoint($mobile) {
     min-width: 100%;
   }
+}
+.clearfix {
+  @include clearfix();
 }
 .wrapper {
   position: relative;
@@ -66,6 +75,10 @@ p {
   float: left;
   box-sizing: border-box;
   width: 33.33%;
+  @include breakpoint($mobile) {
+    float: none;
+    width: 100%;
+  }
 }
 
 .heading {
@@ -77,6 +90,10 @@ p {
   font-size: 63px;
   font-family: $font-family__heading;
   line-height: 66px;
+  @include breakpoint($mobile) {
+    font-size: 46px;
+    line-height: 48px;
+  }
 }
 .heading-line {
   margin: 14px 0;
@@ -84,18 +101,31 @@ p {
   text-transform: uppercase;
   font-size: 35px;
   font-family: $font-family__heading;
+  @include breakpoint($mobile) {
+    font-size: 26px;
+    font-weight: 200;
+  }
   &::after {
     display: block;
     margin: 11px auto 0;
     width: 90px;
     border-bottom: 3px solid $color-text__base;
     content: "";
+    @include breakpoint($mobile) {
+      width: 60px;
+    }
   }
   &_after_lighter {
     margin: 28px 0;
+    @include breakpoint($mobile) {
+      font-size: 35px;
+    }
     &::after {
       margin-top: 23px;
       border-color: #878e9e;
+      @include breakpoint($mobile) {
+        margin-top: 8px;
+      }
     }
   }
 }
@@ -155,17 +185,21 @@ p {
     height: 100px;
   }
   &__developer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -182px 0 0 -290px;
+    @include center();
+    margin: -60px 0 0;
     padding: 35px 0 12px;
     &_compact {
-      margin-top: -150px;
+      margin-top: 20px;
     }
   }
   &_fullscreen {
-    min-height: 550px;
+    min-height: 580px;
+    &__right-side {
+      @include breakpoint($mobile) {
+        float: none;
+        position: relative;
+      }
+    }
   }
   &_triangles {
     &::before {
@@ -182,6 +216,13 @@ p {
         repeat: no-repeat;
         size: 50% 100%;
       }
+      @include breakpoint($tablet) {
+        background: {
+          image:
+            linear-gradient(-170deg, transparent 166px, $color-bg__col-1 167px),
+            linear-gradient(170deg, transparent 166px, $color-bg__col-1 167px);
+        }
+      }
     }
   }
   &_theme_dark {
@@ -190,7 +231,7 @@ p {
       background: {
         image:
           linear-gradient(-170deg, transparent 166px, $color-bg__theme_dark 167px),
-          linear-gradient(170deg, transparent 166px, $color-bg__theme_dark 167px);
+          linear-gradient(170deg, transparent 166px, $color-bg__theme_dark 167px) !important;
       }
       bottom: 184px;
       opacity: .85;
@@ -250,6 +291,10 @@ p {
     color: $color-text__main;
     text-decoration: none;
     transition: 0.4s;
+    @include breakpoint($mobile) {
+      @include center();
+      top: 20px;
+    }
     &:hover, &:active, &:focus {
       border: 1px solid rgba(0, 76, 209, 0.5);
       background: rgba(0, 76, 209, 0.5);
@@ -341,9 +386,15 @@ p {
 }
 .main {
   background: linear-gradient(90deg, $color-bg__col-1 50%, $color-bg__col-2 50%);
+  @include breakpoint($tablet) {
+    background: $color-bg__col-1;
+  }
   &-col-1 {
     padding: 0 6% 15px 7%;
     background: $color-bg__col-1;
+    @include breakpoint($mobile) {
+      padding: 0 2% 15px;
+    }
     &-heading-wrap {
       position: relative;
       @include breakpoint($large) {
@@ -367,6 +418,7 @@ p {
       display: block;
       margin: 0 0 0 -150px;
       width: 300px;
+      height: 150px;
       color: $color-text__accent;
       opacity: .10;
       transform: rotate(189deg);
@@ -376,7 +428,10 @@ p {
     padding: 15px 3.3%;
     background: $color-bg__col-2;
     @include breakpoint($tablet) {
-      padding: 0 6% 15px 7%;
+      padding: 15px 6% 15px 7%;
+    }
+    @include breakpoint($mobile) {
+      padding: 15px 2% 15px;
     }
     &__heading-line {
       margin: 12px 0 36px;
@@ -385,48 +440,55 @@ p {
   &_fullscreen {
     position: absolute;
     top: 0;
-    min-height: 550px;
+    min-height: 580px;
     width: 100%;
     height: 100%;
     background: none;
+    @include breakpoint($tablet) {
+      background: none;
+    }
   }
   &_compact {
     background: $color-bg__compact;
   }
   &__developer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include center();
+    min-width: 250px;
+    max-width: 400px;
+    height: auto;
     box-sizing: border-box;
-    margin: -200px 0 0 -200px;
     padding: 35px 0 0;
-    width: 400px;
-    height: 400px;
     background: rgba(28,31,41,0.5);
+    @include breakpoint($mobile) {
+      width: 94%;
+    }
   }
 }
 .index {
   &-socials {
-    margin: 18px auto;
+    margin: 18px auto 10px;
     width: 204px;
+    @include clearfix();
   }
   &-menu {
     &__list {
-      position: absolute;
-      bottom: 0;
+      //position: absolute;
+      //bottom: 0;
       margin: 0;
       padding: 0;
       list-style: none;
       text-align: center;
       font-weight: $font-weight__medium;
       line-height: 36px;
+      display: table;
+      width: 100%;
       @include clearfix();
     }
     &_closed &__fullscreen {
       display: none;
     }
     &__item {
-      float: left;
+      display: table-cell;
       margin: 0;
       border-right: 1px $color-text__menu solid;
       &:last-of-type {
@@ -435,7 +497,7 @@ p {
     }
     &__link {
       display: block;
-      padding: 7px 35px 7px 34px;
+      padding: 7px 0;
       background: rgba(0,76,209,.85);
       color: $color-text__menu;
       text-decoration: none;
@@ -448,11 +510,12 @@ p {
 }
 .blog {
   &-col-1 {
-    padding: 100px 100px 200px 0;
+    padding: 100px 8% 0 0;
     width: 33%;
+    @include clearfix();
   }
   &-col-2 {
-    padding: 100px 0 200px;
+    padding: 100px 0 0;
     width: 66%;
     max-width: 880px;
   }
@@ -489,12 +552,20 @@ p {
 }
 .article {
   margin: 0 0 50px;
+  @include breakpoint($tablet) {
+    width: 96%;
+    margin: 0 auto 50px;
+  }
   &__heading {
     margin: 0 0 15px;
     color: #455a64;
     text-align: left;
     font-size: 35px;
     line-height: 41px;
+    @include breakpoint($mobile) {
+      font-size: 30px;
+      line-height: 34px;
+    }
   }
   &__date {
     margin: 0 0 20px;

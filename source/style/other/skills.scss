@@ -53,18 +53,11 @@
       stroke-dashoffset: 500;
     }
     &-content {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-      padding: 20px;
-      width: 100%;
-      height: 100%;
+      @include center();
       color: #243994;
       text-align: center;
       font-weight: $font-weight__medium;
       font-size: 13px;
-      justify-content: center;
     }
   }
 }

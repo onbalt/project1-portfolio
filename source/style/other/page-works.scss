@@ -6,25 +6,10 @@
     width: 50%;
     height: 100%;
     text-align: center;
-  }
-  &__slider {
-    float: right;
-    width: 50%;
-    height: 100%;
-    background: #e3e2de;
-  }
-  &-link__svg {
-    margin: 99px 0;
-    width: 44px;
-    height: 30px;
-    color: $color-text__main;
-    &_file-link {
-      margin: 0 10px -5px 0;
-      width: 20px;
-      height: 20px;
+    @include breakpoint($tablet) {
+      padding: 5% 0 10%;
+      width: 100%;
     }
-  }
-  &__current {
     &-technic {
       margin: 0 0 60px;
       color: $color-text__accent2;
@@ -38,17 +23,41 @@
     }
     &-img-link {
       display: block;
-      min-height: 525px;
+      height: 70%;
       text-align: center;
     }
     &-img {
       margin-top: 110px;
+      max-width: 100%;
+    }
+  }
+  &__slider {
+    float: right;
+    width: 50%;
+    height: 100%;
+    background: #e3e2de;
+    @include breakpoint($tablet) {
+      width: 100%;
+    }
+  }
+  &-link__svg {
+    width: 44px;
+    height: 30px;
+    color: $color-text__main;
+    @include center(44px, 30px);
+    &_file-link {
+      position: static;
+      margin: 0 10px -5px 0;
+      width: 20px;
+      height: 20px;
     }
   }
   &__link {
     position: relative;
     display: block;
     float: left;
+    width: 50%;
+    height: 30%;
     &-overlay {
       position: absolute;
       top: 0;
@@ -58,33 +67,16 @@
       text-align: center;
     }
   }
-}
-.works-about {
-  background: #131a24 center no-repeat url("/assets/img/footer_bg-works.jpg");
-  &-heading {
-    position: relative;
-    margin: 0 0 50px;
-    &__svg {
-      position: absolute;
-      left: 50%;
-      display: block;
-      margin: 33px 0 0 -200px;
-      width: 400px;
-      height: 220px;
-      color: $color-text__main;
-      opacity: .15;
-      transform: rotate(25deg);
-    }
-  }
-  &__heading {
-    margin: 0;
-    padding: 70px 0 0;
-    color: $color-text__main;
+  &__img {
+    max-width: 100%;
   }
 }
 .opinions {
   margin: 0 auto;
   width: 70%;
+  @include breakpoint($mobile) {
+    width: 96%;
+  }
   &__list {
     margin: 0;
     padding: 0;
@@ -100,6 +92,10 @@
     margin: 0 0 30px;
     width: 50%;
     text-align: center;
+    @include breakpoint($mobile) {
+      float: none;
+      width: 100%;
+    }
   }
   &__photo-wrap {
     position: relative;
@@ -121,6 +117,27 @@
   }
 }
 .works-about {
+  background: #131a24 center no-repeat url("/assets/img/footer_bg-works.jpg");
+  &-heading {
+    position: relative;
+    margin: 0 0 50px;
+    &__svg {
+      position: absolute;
+      left: 50%;
+      display: block;
+      margin: 33px 0 0 -170px;
+      max-width: 400px;
+      height: 100%;
+      color: $color-text__main;
+      opacity: .15;
+      transform: rotate(25deg);
+    }
+  }
+  &__heading {
+    margin: 0;
+    padding: 70px 0 0;
+    color: $color-text__main;
+  }
   &-form {
     &__heading-line {
       margin: 0 0 30px;
@@ -134,10 +151,13 @@
   }
   &__form {
     position: relative;
-    margin: 30px auto 320px;
+    margin: 30px auto 110px;
     padding: 30px 20px;
     width: 340px;
     background: rgba(255,255,255,.1);
+    @include breakpoint($mobile) {
+      width: 80%;
+    }
   }
   &__input {
     box-sizing: border-box;

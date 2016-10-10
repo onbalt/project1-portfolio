@@ -1,8 +1,11 @@
 .map {
   position: relative;
   margin: 0;
-  min-height: 974px;
+  min-height: 780px;
   background: #f2f2f2 center top no-repeat url("/assets/img/map_bg.jpg");
+  @include breakpoint($mobile) {
+    margin: 360px 0 0;
+  }
   &__contacts {
     position: absolute;
     top: 274px;
@@ -16,6 +19,16 @@
       width: 350px;
       height: 420px;
     }
+    @include breakpoint($mobile) {
+      width: 100%;
+      margin: 0;
+      left: 0;
+      top: -360px;
+      height: 360px;
+    }
+  }
+  &__empty-footer {
+    min-height: 974px;
   }
 }
 .contacts {
@@ -34,6 +47,9 @@
     @include breakpoint($tablet) {
       float: none;
       width: 100%;
+    }
+    @include breakpoint($mobile) {
+      margin-bottom: 10px;
     }
   }
   &__svg {

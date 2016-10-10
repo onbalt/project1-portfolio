@@ -6,7 +6,7 @@ module.exports = {
   pxtoremPlusConfig: {
     rootValue: 16,
     propList: ['*'],
-    selectorBlackList: ['html'],
+    selectorBlackList: ['html', '.skills__circle'],
     // replace: false
     minPixelValue: 2
   }

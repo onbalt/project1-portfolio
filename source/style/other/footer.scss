@@ -1,3 +1,12 @@
+.empty-footer {
+  height: 185px;
+  @include breakpoint($tablet) {
+    height: 220px;
+  }
+  @include breakpoint($mobile) {
+    height: 360px;
+  }
+}
 .footer {
   position: absolute;
   left: 0;
@@ -13,12 +22,20 @@
     font-size: 14px;
     line-height: 20px;
   }
+  @include breakpoint($mobile) {
+    margin: -360px 0 0;
+    height: 360px;
+    line-height: 24px;
+  }
   &-wrap {
     overflow: hidden;
     height: 185px - 38px;
     background: rgba(28,31,41,.85);
     @include breakpoint($tablet) {
       height: 220px - 38px;
+    }
+    @include breakpoint($mobile) {
+      height: 340px - 38px;
     }
   }
   &__wrapper {
@@ -30,12 +47,13 @@
   &-col_1 {
     width: 35%;
     @include breakpoint($tablet) {
+      float: none;
       width: 100%;
       height: auto;
     }
     &__footer-column__text {
       @include breakpoint($tablet) {
-        padding: 0 0 20px;
+        padding: 0 0 3%;
         border-bottom: 1px solid rgba(255,255,255,0.4);
         text-align: center;
       }
@@ -47,6 +65,12 @@
       float: left;
       width: 74%;
     }
+    @include breakpoint($mobile) {
+      float: none;
+      width: 100%;
+      height: auto;
+      @include clearfix();
+    }
   }
   &-col_3 {
     width: 26%;
@@ -54,12 +78,18 @@
       float: right;
       text-align: right;
     }
+    @include breakpoint($mobile) {
+      float: none;
+      width: 100%;
+      height: auto;
+      text-align: center;
+    }
   }
   &-column {
     position: relative;
     padding: 25px;
     @include breakpoint($tablet) {
-      padding: 25px 25px 0;
+      padding: 3% 25px 0;
     }
     &_middle {
       &::before,
@@ -84,6 +114,11 @@
     }
   }
   &-menu {
+    @include breakpoint($mobile) {
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      text-align: center;
+    }
     &__list {
       margin: 0;
       padding: 0;
@@ -92,10 +127,22 @@
       font-weight: $font-weight__medium;
       line-height: 24px;
       @include clearfix();
+      @include breakpoint($mobile) {
+        display: table;
+        width: 100%;
+      }
     }
     &__item {
       float: left;
       margin: 0 40px 0 0;
+      @include breakpoint($tablet) {
+        margin: 0 4% 0 0;
+      }
+      @include breakpoint($mobile) {
+        display: table-cell;
+        float: none;
+        margin: 0;
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -105,26 +152,61 @@
       text-decoration: none;
       &_active,
       &:hover, &:active, &:focus {
+        color: $color-text__accent;
         text-decoration: underline;
       }
     }
   }
   &_fullscreen {
-    margin: -60px 0 0;
-    height: 60px;
+    $height: 60px;
+    margin: -$height 0 0;
+    height: $height;
+    @include breakpoint($tablet) {
+      margin: -$height 0 0;
+      height: $height;
+    }
+    @include breakpoint($mobile) {
+      margin: -$height 0 0;
+      height: $height;
+    }
   }
   &-copyright {
     padding: 6px 0 0;
-    height: 35px;
+    height: 32px;
     background: rgba(8,60,150,.85);
     text-align: center;
+    @include breakpoint($mobile) {
+      height: 52px;
+    }
     &_fullscreen {
       background: none;
     }
+    &__delimetr {
+      padding: 0 4px;
+      @include breakpoint($mobile) {
+        display: none;
+      }
+    }
+    &__sub {
+      @include breakpoint($mobile) {
+        display: block;
+      }
+    }
   }
 }
+.socials_lighter {
+  position: relative;
+  //@include breakpoint($mobile) {
+  //  @include clearfix();
+  //}
+}
 .socials__list_lighter {
-  margin: 10px 0 0 -14px;
+  margin: 1% 0 0 -14px;
+  @include breakpoint($mobile) {
+    @include center();
+    margin: -30px 0 0;
+    min-width: 168px;
+  }
 }
 .socials__link_lighter {
   color: #9e9fa3;
