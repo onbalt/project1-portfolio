@@ -7,9 +7,19 @@
   color: $color-text__main;
   font-weight: $font-weight__light;
   line-height: 26px;
+  @include breakpoint($tablet) {
+    margin: -220px 0 0;
+    height: 220px;
+    font-size: 14px;
+    line-height: 20px;
+  }
   &-wrap {
+    overflow: hidden;
     height: 185px - 38px;
     background: rgba(28,31,41,.85);
+    @include breakpoint($tablet) {
+      height: 220px - 38px;
+    }
   }
   &__wrapper {
     height: 100%;
@@ -19,16 +29,38 @@
   }
   &-col_1 {
     width: 35%;
+    @include breakpoint($tablet) {
+      width: 100%;
+      height: auto;
+    }
+    &__footer-column__text {
+      @include breakpoint($tablet) {
+        padding: 0 0 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+        text-align: center;
+      }
+    }
   }
   &-col_2 {
     width: 100-35-26%;
+    @include breakpoint($tablet) {
+      float: left;
+      width: 74%;
+    }
   }
   &-col_3 {
     width: 26%;
+    @include breakpoint($tablet) {
+      float: right;
+      text-align: right;
+    }
   }
   &-column {
     position: relative;
     padding: 25px;
+    @include breakpoint($tablet) {
+      padding: 25px 25px 0;
+    }
     &_middle {
       &::before,
       &::after {
@@ -39,6 +71,9 @@
         height: 88px;
         border-left: 1px solid #63656c;
         content: "";
+        @include breakpoint($tablet) {
+          display: none;
+        }
       }
       &::before {
         left: -2px;
@@ -79,7 +114,7 @@
     height: 60px;
   }
   &-copyright {
-    padding: 3px 0 0;
+    padding: 6px 0 0;
     height: 35px;
     background: rgba(8,60,150,.85);
     text-align: center;
@@ -89,7 +124,7 @@
   }
 }
 .socials__list_lighter {
-  margin: 32px 0 0 -14px;
+  margin: 10px 0 0 -14px;
 }
 .socials__link_lighter {
   color: #9e9fa3;

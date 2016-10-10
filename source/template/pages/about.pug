@@ -8,13 +8,16 @@ block variables
 block content
     .wrapper
         .column2.main-col-1
-            h1.heading Обо мне
-            .developer-photo
-                //img.developer-photo__image(src="/assets/img/avatar_big.jpg")
-                img.developer-photo__image(src="/assets/img/avatar.jpg")
-            h2.heading-line Кто я
-            p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
+            .main-col-1-heading-wrap
+                +svgItem("main-col-1-heading", "stars2")
+                h1.heading.main-col-1__heading Обо мне
+            .main-col-1-wrap
+                .developer-photo
+                    //img.developer-photo__image(src="/assets/img/avatar_big.jpg")
+                    img.developer-photo__image(src="/assets/img/avatar.jpg")
+                h2.heading-line Кто я
+                p Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
         .column2.main-col-2
             h2.heading-line.main-col-2__heading-line Чем я могу быть <br> вам полезен
             p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
