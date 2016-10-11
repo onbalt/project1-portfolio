@@ -1,3 +1,74 @@
+
+//preloader
+$(function () {
+
+	var imgs = [],
+		percentsTotal = 1,
+		// $preloaderSpinner = $('path.preloader-svg__spinner'),
+		// pathSpinnerLength = $preloaderSpinner.get(0).getTotalLength(),
+		$preloaderCircle = $('path.preloader-svg__percent'),
+		pathCircleLength = $preloaderCircle.get(0).getTotalLength();
+	// $preloaderSpinner.css({
+	// 	'stroke-dasharray': '0 ' + (pathSpinnerLength / 8),
+	// 	'stroke-dashoffset': -pathSpinnerLength
+	// });
+	$preloaderCircle.css({
+		'stroke-dasharray': pathCircleLength,
+		'stroke-dashoffset': pathCircleLength
+	});
+
+	$.each($('img,.check-bg'), function () {
+		var path,
+			$this = $(this),
+			background = $this.css('background-image');
+
+		if ($this.is('img')) {
+			path = $this.attr('src');
+			if (path) {
+				imgs.push(path);
+			}
+		} else if (background != 'none' && /url\(/.test(background)) {
+			path = background.replace('url("', '').replace('")', '');
+			imgs.push(path);
+		}
+
+	});
+
+	for (var i = 0; i < imgs.length; i++) {
+		var image = $('<img>', {
+			attr: {
+				src: imgs[i]
+			}
+		});
+
+		image.on({
+			load : function () {
+				setPercents(imgs.length, percentsTotal);
+			},
+			error : function () {
+				setPercents(imgs.length, percentsTotal);
+			}
+		});
+	}
+
+	function setPercents(total, current) {
+		var percent = Math.ceil(current / total * 100),
+			pathPercentLength = (100 - percent) * pathCircleLength / 100;
+
+		$preloaderCircle.css({
+			'opacity': '.' + (percent - 1),
+			'stroke-dashoffset': pathPercentLength
+		});
+
+		$('.preloader__percents').text(percent + '%');
+
+		if (percent >= 100) {
+			$('.preloader').fadeOut();
+		}
+		percentsTotal++;
+	}
+});
+
 $(function() {
 
 	var menuToggleLinks = '.menu__open-link, .menu__close-link';

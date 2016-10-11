@@ -49,6 +49,53 @@ body {
   //  width: 100%;
   //}
 }
+
+.preloader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background: #133266;
+  color: #fff;
+  &__spinner {
+    @include center(150px, 150px);
+  }
+  &__animation {
+    @include center();
+  }
+  &__percents {
+    @include center();
+  }
+  &-svg__spinner {
+    transition: all 2s ease-out;
+    animation: preloader__spinner 4s ease-in-out infinite;
+    stroke-linecap: round;
+    stroke-dasharray: 0, 35%;
+    stroke-dashoffset: -277%;
+  }
+  &-svg__percent {
+    opacity: 0;
+    transition: all 2s ease-out;
+    stroke-dasharray: 210%;
+    stroke-dashoffset: 210%;
+  }
+}
+@keyframes preloader__spinner {
+  0% {
+    stroke-dasharray: 0, 35%;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 0, 277%;
+  }
+  100% {
+    stroke-dasharray: 0, 35%;
+    stroke-dashoffset: -277%;
+  }
+}
+
 a {
   transition: 0.4s;
 }
@@ -102,8 +149,8 @@ p {
   font-size: 35px;
   font-family: $font-family__heading;
   @include breakpoint($mobile) {
-    font-size: 26px;
     font-weight: 200;
+    font-size: 26px;
   }
   &::after {
     display: block;
@@ -196,8 +243,8 @@ p {
     min-height: 580px;
     &__right-side {
       @include breakpoint($mobile) {
-        float: none;
         position: relative;
+        float: none;
       }
     }
   }
@@ -453,11 +500,11 @@ p {
   }
   &__developer {
     @include center();
+    box-sizing: border-box;
+    padding: 35px 0 0;
     min-width: 250px;
     max-width: 400px;
     height: auto;
-    box-sizing: border-box;
-    padding: 35px 0 0;
     background: rgba(28,31,41,0.5);
     @include breakpoint($mobile) {
       width: 94%;
@@ -474,14 +521,14 @@ p {
     &__list {
       //position: absolute;
       //bottom: 0;
+      display: table;
       margin: 0;
       padding: 0;
+      width: 100%;
       list-style: none;
       text-align: center;
       font-weight: $font-weight__medium;
       line-height: 36px;
-      display: table;
-      width: 100%;
       @include clearfix();
     }
     &_closed &__fullscreen {
@@ -516,8 +563,8 @@ p {
   }
   &-col-2 {
     padding: 100px 0 0;
-    width: 66%;
     max-width: 880px;
+    width: 66%;
   }
   &-menu {
     float: right;
@@ -553,8 +600,8 @@ p {
 .article {
   margin: 0 0 50px;
   @include breakpoint($tablet) {
-    width: 96%;
     margin: 0 auto 50px;
+    width: 96%;
   }
   &__heading {
     margin: 0 0 15px;

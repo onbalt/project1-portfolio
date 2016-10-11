@@ -1,4 +1,9 @@
-header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'} class={"header_compact": pageAlias === 'blog'})
+.preloader
+    .preloader__spinner
+        .preloader__animation
+            include ./../../../source/images/preloader_night.svg
+        .preloader__percents 0%
+header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'} class={"header_compact": pageAlias === 'blog'}).check-bg
     .wrapper.header__wrapper
         .header__side-wrap
             .left-side.header__left-side
