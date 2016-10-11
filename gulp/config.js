@@ -6,7 +6,7 @@ module.exports = {
   pxtoremPlusConfig: {
     rootValue: 16,
     propList: ['*'],
-    selectorBlackList: ['html', '.skills__circle', '.preloader-svg'],
+    selectorBlackList: ['html', '.skills__circle', '.preloader'],
     // replace: false
     minPixelValue: 2
   }

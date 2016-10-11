@@ -28,6 +28,9 @@ body {
     min-width: 100%;
   }
 }
+.hidden {
+  display: none;
+}
 .clearfix {
   @include clearfix();
 }
@@ -57,13 +60,14 @@ body {
   bottom: 0;
   left: 0;
   z-index: 9999;
-  background: #133266;
+  background: #133266 center no-repeat url("/assets/img/preloader_night_bg.jpg");
   color: #fff;
+  font-family: sans-serif;
   &__spinner {
     @include center(150px, 150px);
   }
   &__animation {
-    @include center();
+    @include center(75px, 75px);
   }
   &__percents {
     @include center();
@@ -76,10 +80,8 @@ body {
     stroke-dashoffset: -277%;
   }
   &-svg__percent {
-    opacity: 0;
+    opacity: 0.05;
     transition: all 2s ease-out;
-    stroke-dasharray: 210%;
-    stroke-dashoffset: 210%;
   }
 }
 @keyframes preloader__spinner {

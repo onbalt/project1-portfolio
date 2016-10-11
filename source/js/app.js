@@ -56,11 +56,11 @@ $(function () {
 			pathPercentLength = (100 - percent) * pathCircleLength / 100;
 
 		$preloaderCircle.css({
-			'opacity': '.' + (percent - 1),
+			'opacity': (percent >= 100) ? 1 : '.' + percent,
 			'stroke-dashoffset': pathPercentLength
 		});
 
-		$('.preloader__percents').text(percent + '%');
+		$('.preloader__percents').text(percent);
 
 		if (percent >= 100) {
 			$('.preloader').fadeOut();
