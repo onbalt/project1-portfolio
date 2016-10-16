@@ -12,26 +12,30 @@ block header_heading
 block content
     .works-portfolio
         .wrapper
-            .portfolio
-                .portfolio__current
-                    .heading-line.heading-line_after_lighter.
-                        Test Сайт школы
-                        онлайн образования
-                    .portfolio__current-technic PHP, JS, HTML, CSS
-                    a.portfolio__current-link(href="about.html" target="_blank")
-                        +svgItem("portfolio-link", "link")
-                        span Посмотреть сайт
-                .portfolio__slider
-                    a.portfolio__current-img-link(href="about.html" target="_blank")
-                        img.portfolio__current-img(src="/assets/img/portfolio_last-big.png")
-                    a.portfolio__link(href="#prev")
-                        img.portfolio__img(src="/assets/img/portfolio_prev-th.png")
-                        .portfolio__link-overlay
-                            +svgItem("portfolio-link", "portf_arrow_down")
-                    a.portfolio__link(href="#next")
-                        img.portfolio__img(src="/assets/img/portfolio_next-th.png")
-                        .portfolio__link-overlay
-                            +svgItem("portfolio-link", "portf_arrow_up")
+            .slider.portfolio
+                .slider-current.portfolio__slider-current
+                    .slider-current__wrap.portfolio__slider-current__wrap
+                        .slider-current__heading.heading-line.heading-line_after_lighter Test Сайт школы онлайн образования
+                        .slider-current__text.portfolio__slider-current__text PHP, JS, HTML, CSS
+                        a.slider-current__link.portfolio__slider-current__link(href="#1")
+                            +svgItem("portfolio-link", "link")
+                            span Посмотреть сайт
+                ul.slider__list.portfolio__slider__list
+                    li.slider__item.slider__item_active(data-text="PHP, JS, HTML, CSS")
+                        a.slider__link(href="#1" title="Test Сайт школы онлайн образования")
+                            img.slider__img(src="/assets/img/work-01.png")
+                    li.slider__item.slider__item_next(data-text="PHP, PHP, PHP, PHP")
+                        a.slider__link(href="#2" title="2 Test Сайт")
+                            img.slider__img(src="/assets/img/work-02.png")
+                    li.slider__item(data-text="JS, JS, JS, JS")
+                        a.slider__link(href="#3" title="3 Test Сайт")
+                            img.slider__img(src="/assets/img/work-03.png")
+                    li.slider__item(data-text="HTML, HTML, HTML, HTML")
+                        a.slider__link(href="#4" title="4 Test Сайт")
+                            img.slider__img(src="/assets/img/work-04.png")
+                    li.slider__item.slider__item_prev(data-text="CSS, CSS, CSS, CSS")
+                        a.slider__link(href="#5" title="5 Test Сайт")
+                            img.slider__img(src="/assets/img/work-05.png")
     .works-about.check-bg
         .wrapper
             .works-about-heading

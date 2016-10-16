@@ -96,3 +96,74 @@ $(function() {
 	});
 
 });
+
+$(function() {
+	var $sliders = $('.slider');
+	$.each($sliders, function (i, slider) {
+		var $slider = $(slider),
+			$list = $slider.find('.slider__list'),
+			$items = $list.find('.slider__item'),
+			itemsCount = $items.length,
+			itemsLastIndex = itemsCount - 1,
+			$current = $slider.find('.slider-current'),
+			$currentHeading = $current.find('.slider-current__heading'),
+			$currentText = $current.find('.slider-current__heading'),
+			$currentLink = $current.find('.slider-current__link'),
+			cssSetTimeout = 800;
+		$items.eq(0).addClass('slider__item_active')
+			.next().addClass('slider__item_next');
+		$items.eq(itemsLastIndex).addClass('slider__item_prev');
+
+		$list.on('click', '.slider__item_prev, .slider__item_next', function (e) {
+			e.preventDefault();
+			var $this = $(this),
+				direction = $this.hasClass('slider__item_prev') ? -1 : 1,
+				$active = $items.filter('.slider__item_active'),
+				$prev = (direction == -1) ? $this : $items.filter('.slider__item_prev'),
+				$next = (direction == 1)  ? $this : $items.filter('.slider__item_next'),
+				$target = $targetPrev = $targetNext = null;
+
+			if (direction > 0) {
+				$target = $active.nextOrFirst();
+				$targetPrev = $prev.nextOrFirst();
+				$targetNext = $next.nextOrFirst();
+			} else {
+				$target = $active.prevOrLast();
+				$targetPrev = $prev.prevOrLast();
+				$targetNext = $next.prevOrLast();
+			}
+
+			$current.addClass('slider-current_hidden');
+			$prev.addClass('slider__item_state_bottom').removeClass('slider__item_prev slider__item_state_top');
+			$targetPrev.addClass('slider__item_state_left slider__item_state_top');
+			$active.removeClass('slider__item_active');
+			$target.addClass('slider__item_active').removeClass('slider__item_state_left slider__item_state_right slider__item_state_bottom slider__item_state_top');
+			$next.addClass('slider__item_state_top').removeClass('slider__item_next slider__item_state_bottom');
+			$targetNext.addClass('slider__item_state_right slider__item_state_bottom');
+
+			setTimeout(function () {
+				$currentHeading.text($target.children('a').attr('title'));
+				$currentLink.attr('href', $target.children('a').attr('href'));
+				$currentText.text($target.data('text'));
+				$current.removeClass('slider-current_hidden');
+				$prev.removeClass('slider__item_state_left slider__item_state_bottom');
+				$next.removeClass('slider__item_state_right slider__item_state_top');
+				$targetPrev.addClass('slider__item_prev');
+				$targetNext.addClass('slider__item_next');
+			}, cssSetTimeout);
+
+		});
+
+	});
+});
+
+$(function() {
+	$.fn.nextOrFirst = function(selector) {
+		var next = this.next(selector);
+		return (next.length) ? next : this.siblings(selector).first();
+	};
+	$.fn.prevOrLast = function(selector) {
+		var prev = this.prev(selector);
+		return (prev.length) ? prev : this.siblings(selector).last();
+	};
+});

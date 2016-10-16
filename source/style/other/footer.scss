@@ -152,7 +152,7 @@
       text-decoration: none;
       &_active,
       &:hover, &:active, &:focus {
-        color: $color-text__accent;
+        color: lighten($color-text__accent, 25%);
         text-decoration: underline;
       }
     }

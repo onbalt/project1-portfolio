@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="75" height="75" xmlns="http://www.w3.org/2000/svg">
 <g>
-	<path class="preloader-svg__spinner" d="m37.37736,4.437c18.23204,0 33,14.76796 33,33c0,18.23204 -14.76796,33 -33,33c-18.23204,0 -33,-14.76796 -33,-33c0,-18.23204 14.76796,-33 33,-33z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="9" stroke="currentColor" fill-opacity="null" fill="none"/>
-	<path class="preloader-svg__percent" d="m37.61375,12.438c13.81215,0 25,11.18785 25,25c0,13.81215 -11.18785,25 -25,25c-13.81215,0 -25,-11.18785 -25,-25c0,-13.81215 11.18785,-25 25,-25z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="2.5864" stroke="currentColor" fill-opacity="null" fill="none"/>
+	<path class="preloader-svg__spinner" d="m37.37736,4.437c18.23204,0 33,14.76796 33,33c0,18.23204 -14.76796,33 -33,33c-18.23204,0 -33,-14.76796 -33,-33c0,-18.23204 14.76796,-33 33,-33z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="9" stroke="currentColor" fill-opacity="null" fill="none"></path>
+	<path class="preloader-svg__percent" d="m37.61375,12.438c13.81215,0 25,11.18785 25,25c0,13.81215 -11.18785,25 -25,25c-13.81215,0 -25,-11.18785 -25,-25c0,-13.81215 11.18785,-25 25,-25z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="2.5864" stroke="currentColor" fill-opacity="null" fill="none"></path>
 </g>
 </svg>

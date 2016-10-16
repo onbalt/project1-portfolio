@@ -1,0 +1,199 @@
+.slider {
+  min-height: 750px;
+  width: 100%;
+  height: 1px;
+  @include breakpoint($tablet2) {
+    min-height: 600px;
+  }
+  &-current {
+    position: relative;
+    float: left;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.4s;
+    @include breakpoint($tablet) {
+      padding: 5px 0 70px;
+      min-height: 230px;
+      width: 100%;
+      height: 30%;
+    }
+    &__wrap {
+      @include vertical-align();
+    }
+    &__text {
+      margin: 0 0 60px;
+    }
+    &__link {
+      padding: 12px 20px 12px 20px;
+    }
+    &_hidden {
+      opacity: 0;
+    }
+  }
+  &__list {
+    position: relative;
+    float: right;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+    list-style: none;
+    @include breakpoint($tablet) {
+      min-height: 400px;
+      width: 100%;
+    }
+  }
+  &__item {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    float: none;
+    margin: 0;
+    width: 50%;
+    height: 30%;
+    opacity: 0;
+    transition: 1.4s;
+    //transition-property: width, height, bottom, left, margin, opacity;
+    &_active {
+      position: absolute;
+      bottom: 30%;
+      left: 50%;
+      z-index: 999;
+      display: block;
+      float: none;
+      clear: both;
+      overflow: hidden;
+      margin: 0;
+      margin-left: -50%;
+      width: 100%;
+      height: 70%;
+      opacity: 1;
+    }
+    &_state {
+      &_top {
+        bottom: 30%;
+      }
+      &_bottom {
+        bottom: -30%;
+      }
+      &_left {
+      }
+      &_right {
+        right: 0;
+        left: initial;
+      }
+    }
+    &_prev, &_next {
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      z-index: 5;
+      display: block;
+      opacity: 1;
+      cursor: pointer;
+      &:before {
+        position: absolute;
+        top: 0;
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        background: rgba(170, 171, 183, 0.7);
+        content: "";
+        text-align: center;
+      }
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 22px;
+        height: 22px;
+        border: 10px solid rgba(255, 255, 255, 0.8);
+        border-top-width: 0;
+        border-right-width: 0;
+        content: "";
+        transition: 0.4s;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &:hover {
+        &:after {
+          filter: drop-shadow(0px 0px 5px #000);
+        }
+      }
+    }
+    &_prev {
+      right: initial;
+      left: 0;
+      &:after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      &:hover {
+        &:after {
+          margin-top: 10px;
+        }
+      }
+    }
+    &_next {
+      right: 0;
+      left: initial;
+      z-index: 11;
+      &:after {
+        margin-top: 15px;
+        transform: translate(-50%, -50%) rotate(135deg);
+      }
+      &:hover {
+        &:after {
+          margin-top: 5px;
+        }
+      }
+    }
+
+  }
+  &__link {
+    position: relative;
+    display: block;
+    height: 100%;
+    text-align: center;
+  }
+  &__img {
+    @include vertical-align();
+    max-width: 100%;
+    max-height: 100%;
+  }
+  &-control {
+    display: none;
+    float: right;
+    width: 50%;
+    height: 30%;
+    @include breakpoint($tablet) {
+      float: none;
+      width: 100%;
+      height: auto;
+    }
+    &__link {
+      position: relative;
+      display: block;
+      float: left;
+      width: 50%;
+      height: 100%;
+      text-align: center;
+      &-overlay {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(170, 171, 183, 0.7);
+        text-align: center;
+      }
+    }
+    &__img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
