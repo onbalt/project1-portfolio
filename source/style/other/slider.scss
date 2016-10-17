@@ -57,7 +57,7 @@
     width: 50%;
     height: 30%;
     opacity: 0;
-    transition: 1.4s;
+    transition: 1s;
     //transition-property: width, height, bottom, left, margin, opacity;
     &_active {
       position: absolute;
@@ -76,10 +76,10 @@
     }
     &_state {
       &_top {
-        bottom: 30%;
+        bottom: 25%;
       }
       &_bottom {
-        bottom: -30%;
+        bottom: -25%;
       }
       &_left {
       }
