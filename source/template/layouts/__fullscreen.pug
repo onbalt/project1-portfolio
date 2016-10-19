@@ -7,11 +7,17 @@ html
         include head
 
     body
+        .preloader.check-bg
+            img.hidden(src="/assets/img/preloader_night_bg.jpg")
+            .preloader__spinner
+                .preloader__animation
+                    include ./../../../source/images/preloader_night.svg
+                .preloader__percents %
         header.header.header_fullscreen
             .wrapper.header__wrapper
                 .header__side-wrap
                     .right-side.header_fullscreen__right-side
-                        a.header__btn(href="#auth") Авторизоваться
+                        a.header__btn.auth-link(href="#auth") Авторизоваться
         main.main.main_fullscreen
             block content
         footer.footer.footer_fullscreen

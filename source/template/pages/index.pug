@@ -6,14 +6,42 @@ block variables
   - var pageTitle = 'Личный сайт веб разработчика'
 
 block content
-  .developer.main__developer
-    //.header__developer-svg
-    //+svgItem("developer", "stars1")
-    //-.developer_inner
-    .developer__photo-wrap
-      img.developer__photo(src="/assets/img/avatar.jpg")
-    .developer__name Boris Dvorianchikov
-    .developer__text Личный сайт веб разработчика
-    .index-socials
-      +socials(socialLinks)
-    +index-menu__list(menuIndex)
+    .developer.main__developer
+        .flipper.main__developer__flipper.auth-flipper
+            .flipper-front
+                .developer__photo-wrap
+                    img.developer__photo(src="/assets/img/avatar.jpg")
+                h1.developer__name Boris Dvorianchikov
+                .developer__text Личный сайт веб разработчика
+                .index-socials
+                    +socials(socialLinks)
+                +index-menu__list(menuIndex)
+            .flipper-back
+                .authorization
+                    form.authorization__form(method="post")
+                        h2.heading.heading_medium.authorization__heading Авторизуйтесь
+                        label.authorization__label.authorization__label_block
+                            input.authorization__input(name="name" placeholder="Логин")
+                            .authorization__input-svg
+                                +svgItem("authorization", "login")
+                        label.authorization__label.authorization__label_block
+                            input.authorization__input(name="name" placeholder="Пароль")
+                            .authorization__input-svg
+                                +svgItem("authorization", "password")
+                        label.authorization__label
+                            input.authorization__checkbox(name="ishuman" type="checkbox" value="true" checked="checked")
+                            span.authorization__chk-wrap
+                                +svgItem("authorization", "check")
+                            span Я человек
+                        p.authorization__p Вы точно не робот?
+                        label.authorization__label
+                            input.authorization__radio(name="notrobot" type="radio" value="true")
+                            span.authorization__radio-wrap
+                            span Да
+                        label.authorization__label
+                            input.authorization__radio(name="notrobot" type="radio" value="notsure" checked="checked")
+                            span.authorization__radio-wrap
+                            span Не уверен
+                        .authorization__btns
+                            a.authorization__btn.authorization__btn_link.auth-link(href="#main") На главную
+                            input.authorization__btn.authorization__btn_submit(disabled="disabled" name="submit" type="submit" value="Авторизоваться")

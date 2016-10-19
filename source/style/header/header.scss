@@ -143,6 +143,14 @@ p {
     font-size: 46px;
     line-height: 48px;
   }
+  &_medium {
+    font-size: 35px;
+    line-height: 41px;
+    @include breakpoint($mobile) {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
 }
 .heading-line {
   margin: 14px 0;
@@ -194,7 +202,6 @@ p {
     opacity: .07;
   }
   &__photo-wrap {
-    position: relative;
     overflow: hidden;
     margin: 0 auto 20px;
     width: 141px;
@@ -205,13 +212,9 @@ p {
     max-width: 100%;
   }
   &__name {
-    position: relative;
     margin-bottom: 7px;
     font-weight: $font-weight__medium;
     font-size: 35px;
-  }
-  &__text {
-    position: relative;
   }
   &-photo {
     margin: 40px 0 27px;
@@ -502,13 +505,156 @@ p {
   &__developer {
     @include center();
     box-sizing: border-box;
-    padding: 35px 0 0;
+    margin: 20px auto;
     min-width: 250px;
-    max-width: 400px;
+    max-width: 380px;
+    width: 100%;
     height: auto;
-    background: rgba(28,31,41,0.5);
     @include breakpoint($mobile) {
       width: 94%;
+    }
+    perspective: 1000px;
+    &__flipper {
+      padding: 35px 0 0;
+      background: rgba(28,31,41,0.5);
+    }
+  }
+}
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  &_active {
+    transform: rotateY(180deg);
+  }
+  &-front,
+  &-back {
+    backface-visibility: hidden;
+  }
+  &-front {
+  }
+  &-back {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 35px 0 0;
+  }
+}
+.authorization {
+  color: $color-text__main;
+  text-align: center;
+  &__form {
+    position: relative;
+    margin: 0;
+    padding: 0 0 95px;
+  }
+  &__heading {
+    margin: 0 0 38px;
+  }
+  &__p {
+    margin: 15px 0 10px;
+  }
+  &__label {
+    position: relative;
+    margin: 0 20px;
+    cursor: pointer;
+    &_block {
+      display: block;
+    }
+  }
+  &__input {
+    box-sizing: border-box;
+    margin: 0 0 20px;
+    padding: 10px 15px 10px 60px;
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border: none;
+    background: $color-text__main;
+    color: $color-text__base;
+    &-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45px;
+      height: 45px;
+      background: #f0efe9;
+    }
+  }
+  &__svg {
+    @include center(16px,16px);
+    color: #c4cbcd;
+    &_file-check {
+      display: none;
+      margin: -5px 0 0 -5px;
+      width: 11px;
+      height: 11px;
+    }
+  }
+  &__chk-wrap,
+  &__radio-wrap {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+  }
+  &__chk-wrap {
+    border-radius: 2px;
+    background: #0548be;
+  }
+  &__radio-wrap {
+    border-radius: 50%;
+    background: #fff;
+    &::before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0548be;
+      content: "";
+      opacity: 0;
+    }
+  }
+  &__checkbox,
+  &__radio {
+    display: none;
+  }
+  &__checkbox:checked + &__chk-wrap {
+    .authorization__svg_file-check {
+      display: block;
+    }
+  }
+  &__radio:checked + &__radio-wrap::before {
+    opacity: 1;
+  }
+  &__btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 45px;
+    outline: none;
+    border: none;
+    background: $color-text__accent;
+    color: $color-text__main;
+    cursor: pointer;
+    &:hover {
+      background: $color-text__accent2;
+    }
+    &_link {
+      box-sizing: border-box;
+      padding: 14px 0;
+      text-decoration: none;
+    }
+    &_submit {
+      right: 0;
+      left: auto;
+      border-left: 1px $color-text__menu solid;
     }
   }
 }

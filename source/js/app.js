@@ -8,8 +8,9 @@ var Preloader = function () {
 		$preloader = $('.preloader'),
 		$preloaderCircle = $('path.preloader-svg__percent'),
 		$preloaderPercents = $('.preloader__percents'),
-		pathCircleLength = $preloaderCircle.get(0).getTotalLength();
+		pathCircleLength = $preloaderCircle.length ? $preloaderCircle.get(0).getTotalLength() : 0;
 	var init = function () {
+		if (pathCircleLength == 0) return;
 		$preloaderCircle.css({
 			'stroke-dasharray': pathCircleLength,
 			'stroke-dashoffset': pathCircleLength
@@ -198,6 +199,18 @@ var Slider = function (slider) {
 })(jQuery);
 
 $(function() {
+
+	var hash = window.location.hash.replace('#', '');
+
+	var $authFlipper = $('.auth-flipper'),
+		authToggleLinks = '.auth-link';
+	$(document).on('click', authToggleLinks, function (e) {
+		e.preventDefault();
+		$authFlipper.toggleClass('flipper_active');
+	});
+	if (hash == 'auth') {
+		$authFlipper.addClass('flipper_active');
+	}
 
 	var menuToggleLinks = '.menu__open-link, .menu__close-link';
 	$(document).on('click', menuToggleLinks, function (e) {
