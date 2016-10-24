@@ -573,6 +573,15 @@ p {
     border: none;
     background: $color-text__main;
     color: $color-text__base;
+    &_error {
+      outline: 2px solid rgba(255,0,0,.7);
+      outline-offset: 3px;
+      transition: .2s;
+      background: #ffacac;
+      &:focus {
+        outline-offset: 0;
+      }
+    }
     &-svg {
       position: absolute;
       top: 0;
@@ -603,7 +612,7 @@ p {
   }
   &__chk-wrap {
     border-radius: 2px;
-    background: #0548be;
+    background: #ffffff;
   }
   &__radio-wrap {
     border-radius: 50%;
@@ -625,6 +634,7 @@ p {
     display: none;
   }
   &__checkbox:checked + &__chk-wrap {
+    background: #0548be;
     .authorization__svg_file-check {
       display: block;
     }

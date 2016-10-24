@@ -3,5 +3,5 @@ mixin svg(name)
         use(xlink:href="/assets/img/sprite.svg#" + name)
 
 mixin svgItem(blockName, name)
-    svg(class=blockName + "__svg " + blockName + "__svg_file-" + name)
+    svg(class=blockName + "__svg " + blockName + "__svg_file-" + name, class="#{blockName}__svg #{blockName}__svg_file-#{name}")
         use(xlink:href="/assets/img/sprite.svg#" + name)

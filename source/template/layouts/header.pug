@@ -2,9 +2,14 @@
     img.hidden(src="/assets/img/preloader_night_bg.jpg")
     .preloader__spinner
         .preloader__animation
-            include ./../../../source/images/preloader_night.svg
+            include ./../../images/preloader_night.svg
         .preloader__percents %
-header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'} class={"header_compact": pageAlias === 'blog'}).check-bg
+- var headerAddClass = ""
+if (pageAlias === 'works')
+    - headerAddClass = "header_theme_dark"
+else if (pageAlias === 'blog')
+    - headerAddClass = "header_compact"
+header.header.header_triangles(class=headerAddClass).check-bg
     .wrapper.header__wrapper
         .header__side-wrap
             .left-side.header__left-side
@@ -19,7 +24,10 @@ header.header.header_triangles(class={"header_theme_dark": pageAlias === 'works'
                                 a.menu__close-link(href="#")
                                     +svgItem('menu', 'hamburger')
                             +menu__list(menuMain)
-        .developer.header__developer(class={"header__developer_compact": pageAlias === 'blog'})
+        - var headerDeveloperAddClass = ""
+        if (pageAlias === 'blog')
+            - headerDeveloperAddClass = "header__developer_compact"
+        .developer.header__developer(class=headerDeveloperAddClass)
             //.header__developer-svg
             +svgItem("developer", "stars1")
             //-.developer_inner

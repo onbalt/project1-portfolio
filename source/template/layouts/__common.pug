@@ -9,6 +9,9 @@ html
     body
         include header
         include sidebar
-        main.main(class={"main_compact": pageAlias === 'blog'})
+        - var mainAddClass = ""
+        if (pageAlias === 'blog')
+            - mainAddClass = "main_compact"
+        main.main(class=mainAddClass)
             block content
         include footer
