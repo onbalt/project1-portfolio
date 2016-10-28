@@ -15,14 +15,11 @@ header.header.header_triangles(class=headerAddClass).check-bg
             .left-side.header__left-side
                 +socials(socialLinks)
             .right-side.header__right-side
-                .menu.header__menu.menu_closed
+                .menu.header__menu
                     a.menu__open-link(href="#menu")
-                        +svgItem('menu', 'hamburger')
+                        span.menu__hamburger
                     .menu__fullscreen
                         .wrapper
-                            .right-side
-                                a.menu__close-link(href="#")
-                                    +svgItem('menu', 'hamburger')
                             +menu__list(menuMain)
         - var headerDeveloperAddClass = ""
         if (pageAlias === 'blog')

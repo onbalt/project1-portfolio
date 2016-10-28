@@ -187,6 +187,104 @@ var Slider = function (slider) {
 
 };
 
+var BlogScroll = function (column, menu) {
+	var minWidth = 768,
+		$column = $('.' + column),
+		columnTop = $column.offset().top,
+		columnHeight = $column.height(),
+		footerTop = $('.footer').offset().top,
+		columnBottom = footerTop - columnHeight - 20,
+		columnFixed = false,
+		needFix = true,
+		$articles = $('.article'),
+		articleTops = [];
+
+	var init = function () {
+		var scrollTop = $(window).scrollTop(),
+			windowWidth = $(window).width();
+		if (windowWidth < minWidth) {
+			needFix = false;
+			initSwipeHandler();
+		}
+		if (needFix && scrollTop >= columnTop && scrollTop <= columnBottom) {
+			setFixed();
+		}
+		$.each($articles, function (i, item) {
+			articleTops.push($(item).offset().top - 250);
+		});
+	};
+	var getFixed = function () {
+		return columnFixed;
+	};
+	var setFixed = function () {
+		$column.addClass(column + '_fixed');
+		columnFixed = true;
+	};
+	var delFixed = function () {
+		$column.removeClass(column + '_fixed');
+		columnFixed = false;
+	};
+	var onScroll = function (scrollTop) {
+		if (needFix) {
+			if (scrollTop < columnTop || scrollTop > columnBottom) {
+				if (columnFixed) {
+					delFixed();
+				}
+			} else if ((scrollTop >= columnTop)) {
+				if (!columnFixed) {
+					setFixed();
+				}
+			}
+		}
+		if (!needFix || (scrollTop >= columnTop)) {
+			for (var i = articleTops.length - 1; i >= 0; i--) {
+				if (scrollTop >= articleTops[i]) {
+					$('.' + menu + '__link_active').removeClass(menu + '__link_active');
+					$('.' + menu + '__item').eq(i).children().addClass(menu + '__link_active');
+					break;
+				}
+			}
+		}
+	};
+	var initSwipeHandler = function () {
+		$column.off().on('click', function (e) {
+			$(this).toggleClass(column + '_active');
+		});
+		var swipeMinX = 100,
+			$swipeZone = $('.main'),
+			swipeDelta = 0,
+			touchStartX = 0,
+			touchEndX = 0;
+		$swipeZone.off().on('touchstart', function (e) {
+			var touch = e.originalEvent.touches[0];
+			touchStartX = touchEndX = touch.pageX;
+		});
+		$swipeZone.on('touchmove', function (e) {
+			var touch = e.originalEvent.touches[0];
+			touchEndX = touch.pageX;
+		});
+		$swipeZone.on('touchend', function (e) {
+			swipeDelta = (touchEndX - touchStartX);
+			if (swipeDelta < -swipeMinX) { //swipe left
+				$column.removeClass(column + '_active');
+			} else if (swipeDelta > swipeMinX) { //swipe right
+				$column.addClass(column + '_active');
+			}
+		});
+	};
+	return {
+		init: init,
+		columnTop: columnTop,
+		columnHeight: columnHeight,
+		columnBottom: columnBottom,
+		getFixed: getFixed,
+		setFixed: setFixed,
+		delFixed: delFixed,
+		onScroll: onScroll,
+		initSwipeHandler: initSwipeHandler
+	};
+};
+
 (function ($) {
 	$.fn.nextOrFirst = function(selector) {
 		var next = this.next(selector);
@@ -215,7 +313,7 @@ $(function() {
 	var menuToggleLinks = '.menu__open-link, .menu__close-link';
 	$(document).on('click', menuToggleLinks, function (e) {
 		e.preventDefault();
-		$(this).parents('.menu').toggleClass('menu_closed');
+		$(this).parents('.menu').toggleClass('menu_active');
 	});
 
 	var $skills = $('path.skills__circle-svg-path');
@@ -228,4 +326,42 @@ $(function() {
 		var slider = Slider(item);
 		slider.init();
 	});
+
+	//smooth scroll
+	$('a[href^="#"]').on('click.smoothscroll', function (e) {
+		e.preventDefault();
+		var anchor = this.hash,
+			$target = $(anchor);
+		if ($target.length) {
+			$('html, body').stop().animate({
+				'scrollTop': $target.offset().top
+			}, 500, 'swing', function () {
+				window.location.hash = anchor;
+			});
+		}
+	});
+
+	var blogColumn = 'blog-col-1',
+		blogMenu = 'blog-menu',
+		blogScroll = false;
+	if ($('.' + blogColumn).length) {
+		blogScroll = BlogScroll(blogColumn, blogMenu);
+		blogScroll.init();
+	}
+
+	$(window).on('scroll', function() {
+		var scrollTop = $(window).scrollTop();
+		if (blogScroll) {
+			blogScroll.onScroll(scrollTop);
+		}
+	});
+
+	$(window).on('resize', function() {
+		if (blogScroll) {
+			blogScroll.delFixed();
+			blogScroll = BlogScroll(blogColumn, blogMenu);
+			blogScroll.init();
+		}
+	});
+
 });

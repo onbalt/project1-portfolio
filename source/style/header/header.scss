@@ -379,29 +379,89 @@ p {
   }
 }
 .menu {
+  position: relative;
+  &_active {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9998;
+  }
   &__open-link {
     display: block;
-  }
-  &__svg {
+    position: relative;
+    right: 0;
+    top: 0;
+    z-index: 9999;
     margin: 28px 31px;
     width: 40px;
     height: 35px;
     color: $color-text__main;
   }
+  &__hamburger {
+    top: auto;
+    bottom: 0;
+    transition-duration: 0.15s;
+    transition-delay: 0.15s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    &, &::before, &::after {
+      width: 40px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 3px;
+      position: absolute;
+      transition-property: transform;
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+    }
+    &::before, &::after {
+      content: "";
+      display: block;
+    }
+    &::before {
+      top: -13px;
+      transition: top 0.12s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    &::after {
+      top: -28px;
+      bottom: -13px;
+      transition: top 0.3s 0.3s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+    }
+  }
+  &_active &__hamburger {
+    transform: translate3d(0, -10px, 0) rotate(-45deg);
+    transition-delay: 0.32s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    &::before {
+      top: 0;
+      transform: rotate(-90deg);
+      transition: top 0.12s 0.18s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.15s 0.42s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    &::after {
+      top: 0;
+      opacity: 0;
+      transition: top 0.3s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.27s linear;
+    }
+  }
   &__fullscreen {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
     margin: 0;
     width: 100%;
     height: 100%;
     background: #183669;
     background: rgba(24,54,105,.87);
+    & > .wrapper {
+      height: 100%;
+    }
+  }
+  &_active &__fullscreen {
+    display: block;
   }
   &__list {
     margin: 0;
-    padding: 15% 0 0;
+    padding: 0;
     list-style: none;
     text-align: center;
     text-transform: uppercase;
@@ -409,9 +469,11 @@ p {
     font-size: 63px;
     font-family: $font-family__heading;
     line-height: 116px;
-  }
-  &_closed &__fullscreen {
-    display: none;
+    @include vertical-align();
+    @include breakpoint($tablet) {
+      font-size: 48px;
+      line-height: 64px;
+    }
   }
   &__item {
     margin: 28px 0;
@@ -533,12 +595,12 @@ p {
   &-front {
   }
   &-back {
-    transform: rotateY(180deg);
     position: absolute;
     top: 0;
-    height: 100%;
-    width: 100%;
     padding: 35px 0 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
   }
 }
 .authorization {
@@ -576,8 +638,8 @@ p {
     &_error {
       outline: 2px solid rgba(255,0,0,.7);
       outline-offset: 3px;
-      transition: .2s;
       background: #ffacac;
+      transition: .2s;
       &:focus {
         outline-offset: 0;
       }
@@ -717,8 +779,43 @@ p {
     padding: 100px 8% 0 0;
     width: 33%;
     @include clearfix();
+    @include breakpoint($tablet) {
+      position: fixed;
+      top: 0;
+      left: -285px;
+      z-index: 99;
+      padding: 0 18px 0 0;
+      width: 285px;
+      height: 100%;
+      background: $color-text__accent2;
+      transition: 0.5s;
+      &_active {
+        left: 0;
+        box-shadow: 3px 0 10px 0 rgba(0,0,0,0.5);
+      }
+      &::before {
+        right: -12px;
+        display: block;
+        @include vertical-align(absolute);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: inherit;
+        content: '';
+        cursor: pointer;
+      }
+    }
+    &_fixed {
+      position: fixed;
+      top: 0;
+      //min-width: 280px;
+      @include breakpoint($tablet) {
+        //width: 320px;
+      }
+    }
   }
   &-col-2 {
+    float: right;
     padding: 100px 0 0;
     max-width: 880px;
     width: 66%;
@@ -726,6 +823,9 @@ p {
   &-menu {
     float: right;
     max-width: 280px;
+    @include breakpoint($tablet) {
+      @include vertical-align();
+    }
     &__list {
       margin: 20px 0 0;
       padding: 0;
@@ -733,6 +833,11 @@ p {
       list-style: none;
       text-align: right;
       line-height: 26px;
+      @include breakpoint($tablet) {
+        margin: 0;
+        color: $color-text__main;
+        font-size: 15px;
+      }
     }
     &__item {
       margin: 0;
@@ -744,12 +849,20 @@ p {
       border-right: 3px transparent solid;
       color: $color-text__blog-menu;
       text-decoration: none;
-      transition: 0.5s;
+      transition: 0.6s;
+      @include breakpoint($tablet) {
+        border: none;
+        color: $color-text__main;
+      }
       &_active,
       &:hover, &:active, &:focus {
         border-right: 3px $color-text__accent2 solid;
         color: $color-text__accent2;
         font-weight: $font-weight__bold;
+        @include breakpoint($tablet) {
+          border: none;
+          color: $color-text__main;
+        }
       }
     }
   }
