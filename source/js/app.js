@@ -4,7 +4,7 @@ var Preloader = function () {
 	var imgs = [],
 		totalImages = 0,
 		totalPercents = 1,
-		$checkImages = $('img,.check-bg'),
+		$checkImages = $('img:visible,.check-bg:visible'),
 		$preloader = $('.preloader'),
 		$preloaderCircle = $('path.preloader-svg__percent'),
 		$preloaderPercents = $('.preloader__percents'),
@@ -29,7 +29,8 @@ var Preloader = function () {
 					imgs.push(path);
 				}
 			} else if (background != 'none' && /url\(/.test(background)) {
-				path = background.replace('url("', '').replace('")', '');
+				var matches = /url\(\"?([^\)\"]+)\"?\)/.exec(background);
+				path = matches[1];
 				imgs.push(path);
 			}
 		});
@@ -299,6 +300,9 @@ var BlogScroll = function (column, menu) {
 $(function() {
 
 	var hash = window.location.hash.replace('#', '');
+
+	var $videoJs = $('.video-js:visible');
+	$videoJs.attr('src', function(){return $(this).data('src');})/*.get(0).play()*/;
 
 	var $authFlipper = $('.auth-flipper'),
 		authToggleLinks = '.auth-link';

@@ -60,7 +60,7 @@ body {
   bottom: 0;
   left: 0;
   z-index: 9999;
-  background: #133266 center no-repeat url("/assets/img/preloader_night_bg.jpg");
+  background: #133266 50% 67% no-repeat url("/assets/img/preloader_night_bg.jpg");
   color: #fff;
   font-family: sans-serif;
   &__spinner {
@@ -229,8 +229,26 @@ p {
   overflow: hidden;
   min-height: 370px;
   height: 100%;
-  background: #223b65 center no-repeat url("/assets/img/header_bg.jpg");
+  background: #223b65 50% 60% no-repeat url("/assets/img/header_bg.jpg");
+  &__video {
+    position: relative;
+    height: 100%;
+    @include breakpoint($tablet) {
+      display: none;
+    }
+    &-bg-video {
+      @include center();
+    }
+    &-bg {
+      position: relative;
+      height: 100%;
+      background: transparent 50% 60% no-repeat url("/assets/img/header_night_no_bg.png");
+    }
+  }
   &__wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
     height: 100%;
   }
   &__side-wrap {
@@ -257,6 +275,7 @@ p {
     &::before {
       position: absolute;
       bottom: 0;
+      z-index: 1;
       width: 100%;
       height: 169px;
       content: "";
@@ -382,16 +401,16 @@ p {
   position: relative;
   &_active {
     position: fixed;
-    right: 0;
     top: 0;
+    right: 0;
     z-index: 9998;
   }
   &__open-link {
-    display: block;
     position: relative;
-    right: 0;
     top: 0;
+    right: 0;
     z-index: 9999;
+    display: block;
     margin: 28px 31px;
     width: 40px;
     height: 35px;
@@ -400,22 +419,22 @@ p {
   &__hamburger {
     top: auto;
     bottom: 0;
-    transition-duration: 0.15s;
     transition-delay: 0.15s;
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition-duration: 0.15s;
     &, &::before, &::after {
+      position: absolute;
       width: 40px;
       height: 5px;
-      background-color: #fff;
       border-radius: 3px;
-      position: absolute;
-      transition-property: transform;
-      transition-duration: 0.15s;
+      background-color: #fff;
       transition-timing-function: ease;
+      transition-duration: 0.15s;
+      transition-property: transform;
     }
     &::before, &::after {
-      content: "";
       display: block;
+      content: "";
     }
     &::before {
       top: -13px;
@@ -428,13 +447,13 @@ p {
     }
   }
   &_active &__hamburger {
-    transform: translate3d(0, -10px, 0) rotate(-45deg);
     transition-delay: 0.32s;
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, -10px, 0) rotate(-45deg);
     &::before {
       top: 0;
-      transform: rotate(-90deg);
       transition: top 0.12s 0.18s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.15s 0.42s cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: rotate(-90deg);
     }
     &::after {
       top: 0;
@@ -443,21 +462,25 @@ p {
     }
   }
   &__fullscreen {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
+    display: block;
+    visibility: hidden;
     margin: 0;
     width: 100%;
     height: 100%;
     background: #183669;
     background: rgba(24,54,105,.87);
+    opacity: 0;
+    transition: opacity .4s;
     & > .wrapper {
       height: 100%;
     }
   }
   &_active &__fullscreen {
-    display: block;
+    visibility: visible;
+    opacity: 1;
   }
   &__list {
     margin: 0;

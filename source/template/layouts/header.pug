@@ -10,6 +10,10 @@ if (pageAlias === 'works')
 else if (pageAlias === 'blog')
     - headerAddClass = "header_compact"
 header.header.header_triangles(class=headerAddClass).check-bg
+    if !(headerAddClass === 'header_compact')
+        .header__video
+            video.header__video-bg-video.video-js(data-src="/assets/img/night.mp4" playsinline autoplay muted loop)
+            .header__video-bg.check-bg
     .wrapper.header__wrapper
         .header__side-wrap
             .left-side.header__left-side

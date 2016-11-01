@@ -14,6 +14,9 @@ html
                     include ./../../images/preloader_night.svg
                 .preloader__percents %
         header.header.header_fullscreen
+            .header__video
+                video.header__video-bg-video.video-js(data-src="/assets/img/night.mp4" playsinline autoplay muted loop)
+                .header__video-bg.check-bg
             .wrapper.header__wrapper
                 .header__side-wrap
                     .right-side.header_fullscreen__right-side
